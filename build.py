@@ -32,3 +32,5 @@ def serialize_html(lang: str):
 
 serialize_html("en")
 serialize_html("no")
+
+print("Build complete")
