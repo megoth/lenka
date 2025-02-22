@@ -15,18 +15,20 @@ g.serialize(destination='.build/data.json', format='json-ld', context={
 })
 
 from jinja2 import Environment, select_autoescape, FileSystemLoader
+from fluent.runtime import FluentLocalization, FluentResourceLoader
 
 env = Environment(
     loader=FileSystemLoader(searchpath="src/templates"),
     autoescape=select_autoescape()
 )
+template = env.get_template("index.html")
+loader = FluentResourceLoader("src/localizations/{locale}")
 
-
-def serialize_html(lang: str, body: str):
-    template = env.get_template("index.html")
+def serialize_html(lang: str):
+    l10n = FluentLocalization([lang], ["main.ftl"], loader)
     with open(f".build/{lang}.html", "w") as f:
-        f.write(template.render(lang=lang, body=body))
+        f.write(template.render(lang=lang, l10n=l10n))
 
 
-serialize_html("en", "Hello World!")
-serialize_html("no", "Hei verden!")
+serialize_html("en")
+serialize_html("no")
