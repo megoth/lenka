@@ -1,4 +1,4 @@
-@prefix lenka: <http://lenka.no/#> .
+@prefix lenka: <https://lenka.no/#> .
 @prefix schema: <https://schema.org/> .
 
 lenka:knowledge-graph-oslo a schema:Organization ;
