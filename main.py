@@ -16,7 +16,7 @@ def read_norwegian(request: Request):
 @app.get("/en")
 def read_english(request: Request):
     if request.headers.get("Accept") == "text/turtle":
-        return FileResponse(".build/data.ttl")
+        return FileResponse(".build/data.ttl", media_type="text/turtle")
     return FileResponse(".build/en.html")
 
 
