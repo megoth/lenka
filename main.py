@@ -6,18 +6,24 @@ from starlette.responses import FileResponse
 app = FastAPI()
 
 
-@app.get("/")
-def read_norwegian(request: Request):
+def read_response(request: Request, html_file: str):
+    if request.headers.get("Accept") == "application/ld+json":
+        return FileResponse(".build/data.json", media_type="application/ld+json")
+    if request.headers.get("Accept") == "application/rdf+xml":
+        return FileResponse(".build/data.xml", media_type="application/rdf+xml")
     if request.headers.get("Accept") == "text/turtle":
         return FileResponse(".build/data.ttl", media_type="text/turtle")
-    return FileResponse(".build/no.html")
+    return FileResponse(html_file)
+
+
+@app.get("/")
+def read_norwegian(request: Request):
+    return read_response(request, html_file=".build/no.html")
 
 
 @app.get("/en")
 def read_english(request: Request):
-    if request.headers.get("Accept") == "text/turtle":
-        return FileResponse(".build/data.ttl", media_type="text/turtle")
-    return FileResponse(".build/en.html")
+    return read_response(request, html_file=".build/en.html")
 
 
 if __name__ == "__main__":

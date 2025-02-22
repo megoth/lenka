@@ -1,0 +1,18 @@
+@prefix lenka: <http://lenka.no/#> .
+@prefix schema: <https://schema.org/> .
+
+lenka:uio-in3060 a schema:Course ;
+    schema:name "IN3060 – Semantic Technologies" ;
+    schema:url <https://www.uio.no/studier/emner/matnat/ifi/IN3060/index-eng.html> ;
+    schema:description
+        """
+        After taking this course you'll:
+
+        - have an overview of basic standards (RDF, RDFS, OWL, SPARQL) in semantic technologies
+        - have a good understanding of the theoretical foundation for such technologies, both in terms of semantics and
+        syntactic reasoning
+        - know how to use libraries to use the technology in their own applications
+        - know about ontologies: what they are, how to make them, what to use them for
+        - have an overview of existing applications
+        - be able to use semantic technologies to solve issues in web development, data integration and data transfer
+        """ .

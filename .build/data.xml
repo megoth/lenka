@@ -1,25 +1,31 @@
-@prefix lenka: <http://lenka.no/#> .
-@prefix schema: <https://schema.org/> .
-
-lenka:knowledge-graph-oslo a schema:Organization ;
-    schema:description """
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:schema="https://schema.org/"
+>
+  <rdf:Description rdf:about="http://lenka.no/#knowledge-graph-oslo">
+    <rdf:type rdf:resource="https://schema.org/Organization"/>
+    <schema:name>Knowledge Graph Oslo</schema:name>
+    <schema:url rdf:resource="https://www.meetup.com/knowledge-graph-oslo/"/>
+    <schema:description>
        A meetup group for anyone interested in Knowledge Graphs (KGs), data exchange, linked data, accessible semantics
        of data, and moving from data to knowledge.
 
        Topics of interest:
        * W3C Stack (RDF, RDFS, SPARQL, OWL, SHACL), and surrounding tools and technologies
        * Neo4j and other LPG implementations
-       * NLP, LLM, ML & GenAI related to KGs
+       * NLP, LLM, ML &amp; GenAI related to KGs
 
        If you have something you want to share with the community, please reach out and we can schedule an event! 🌟
 
        Associated Slack space for discussion: [knowledgegraphoslo.slack.com](http://knowledgegraphoslo.slack.com/)
-       """ ;
-    schema:name "Knowledge Graph Oslo" ;
-    schema:url <https://www.meetup.com/knowledge-graph-oslo/> .
-
-lenka:uio-in3060 a schema:Course ;
-    schema:description """
+       </schema:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://lenka.no/#uio-in3060">
+    <rdf:type rdf:resource="https://schema.org/Course"/>
+    <schema:name>IN3060 – Semantic Technologies</schema:name>
+    <schema:url rdf:resource="https://www.uio.no/studier/emner/matnat/ifi/IN3060/index-eng.html"/>
+    <schema:description>
         After taking this course you'll:
 
         - have an overview of basic standards (RDF, RDFS, OWL, SPARQL) in semantic technologies
@@ -29,7 +35,6 @@ lenka:uio-in3060 a schema:Course ;
         - know about ontologies: what they are, how to make them, what to use them for
         - have an overview of existing applications
         - be able to use semantic technologies to solve issues in web development, data integration and data transfer
-        """ ;
-    schema:name "IN3060 – Semantic Technologies" ;
-    schema:url <https://www.uio.no/studier/emner/matnat/ifi/IN3060/index-eng.html> .
-
+        </schema:description>
+  </rdf:Description>
+</rdf:RDF>
