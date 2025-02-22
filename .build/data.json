@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "description": "schema:description",
+    "lenka": "https://lenka.no/#",
+    "name": "schema:name",
+    "schema": "https://schema.org/",
+    "url": "schema:url"
+  },
+  "@graph": [
+    {
+      "@id": "lenka:uio-in3060",
+      "@type": "schema:Course",
+      "description": "\n        After taking this course you'll:\n\n        - have an overview of basic standards (RDF, RDFS, OWL, SPARQL) in semantic technologies\n        - have a good understanding of the theoretical foundation for such technologies, both in terms of semantics and\n        syntactic reasoning\n        - know how to use libraries to use the technology in their own applications\n        - know about ontologies: what they are, how to make them, what to use them for\n        - have an overview of existing applications\n        - be able to use semantic technologies to solve issues in web development, data integration and data transfer\n        ",
+      "name": "IN3060 – Semantic Technologies",
+      "url": {
+        "@id": "https://www.uio.no/studier/emner/matnat/ifi/IN3060/index-eng.html"
+      }
+    },
+    {
+      "@id": "lenka:knowledge-graph-oslo",
+      "@type": "schema:Organization",
+      "description": "\n       A meetup group for anyone interested in Knowledge Graphs (KGs), data exchange, linked data, accessible semantics\n       of data, and moving from data to knowledge.\n\n       Topics of interest:\n       * W3C Stack (RDF, RDFS, SPARQL, OWL, SHACL), and surrounding tools and technologies\n       * Neo4j and other LPG implementations\n       * NLP, LLM, ML & GenAI related to KGs\n\n       If you have something you want to share with the community, please reach out and we can schedule an event! 🌟\n\n       Associated Slack space for discussion: [knowledgegraphoslo.slack.com](http://knowledgegraphoslo.slack.com/)\n       ",
+      "name": "Knowledge Graph Oslo",
+      "url": {
+        "@id": "https://www.meetup.com/knowledge-graph-oslo/"
+      }
+    }
+  ]
+}
