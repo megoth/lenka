@@ -1,1 +1,1 @@
-title = Lenka.no - Ressurser for Lenka Data-entusiaster i Norge333
+title = Lenka.no - Ressurser for Lenka Data-entusiaster i Norge

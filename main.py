@@ -1,9 +1,3 @@
-import os.path
-from build import build
-
-if not os.path.isfile(".build/data.ttl"):
-    build()
-
 import uvicorn
 from fastapi import FastAPI
 from starlette.requests import Request

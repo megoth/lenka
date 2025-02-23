@@ -1,1 +1,1 @@
-title = Lenka.no - Resources for Linked Data enthusiasts in Norway222
+title = Lenka.no - Resources for Linked Data enthusiasts in Norway
