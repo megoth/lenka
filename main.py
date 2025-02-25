@@ -29,7 +29,7 @@ def read_response(request: Request, html: str):
         return PlainTextResponse(rdfxml, media_type="application/rdf+xml")
     if request.headers.get("Accept") == "text/turtle":
         return PlainTextResponse(turtle, media_type="text/turtle")
-    return PlainTextResponse(html, media_type="html")
+    return PlainTextResponse(html, media_type="text/html")
 
 
 @app.get("/")
