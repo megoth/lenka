@@ -1,4 +1,23 @@
 from rdflib import Graph
+from jinja2 import Environment, select_autoescape, FileSystemLoader
+from fluent.runtime import FluentLocalization, FluentResourceLoader
+
+env = Environment(
+    loader=FileSystemLoader(searchpath="src/templates"),
+    autoescape=select_autoescape()
+)
+template = env.get_template("index.html")
+loader = FluentResourceLoader("src/localizations/{locale}")
+
+
+def serialize_html(lang: str):
+    l10n = FluentLocalization([lang], ["main.ftl"], loader)
+    return template.render(lang=lang, l10n=l10n)
+
+def build_html(lang:str):
+    with open(f".build/{lang}.html", "w") as f:
+        f.write(serialize_html(lang))
+
 
 def build():
     g = Graph()
@@ -15,24 +34,8 @@ def build():
         "url": "schema:url",
     })
 
-    from jinja2 import Environment, select_autoescape, FileSystemLoader
-    from fluent.runtime import FluentLocalization, FluentResourceLoader
-
-    env = Environment(
-        loader=FileSystemLoader(searchpath="src/templates"),
-        autoescape=select_autoescape()
-    )
-    template = env.get_template("index.html")
-    loader = FluentResourceLoader("src/localizations/{locale}")
-
-    def serialize_html(lang: str):
-        l10n = FluentLocalization([lang], ["main.ftl"], loader)
-        with open(f".build/{lang}.html", "w") as f:
-            f.write(template.render(lang=lang, l10n=l10n))
-
-
-    serialize_html("en")
-    serialize_html("no")
+    build_html("en")
+    build_html("no")
 
     print("Build complete")
 
