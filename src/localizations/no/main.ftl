@@ -18,6 +18,7 @@ about-description = På denne siden finner du ressurser knyttet til Linked Data 
 about-title = Om lenka.no
 communities = Møteplasser
 community = Møteplass
+copyright = Denne siden er lisensert med [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 course = Kurs
 courses = Kurs
 english = English

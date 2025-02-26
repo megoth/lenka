@@ -18,6 +18,7 @@ about-description = On this website you'll find interesting resources for Linked
 about-title = About lenka.no
 communities = Communities
 community = Community
+copyright = This page is licensed with [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 course = Course
 courses = Courses
 go-to = Go to { $thing }

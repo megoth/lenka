@@ -11,6 +11,19 @@ main > article {
     margin-bottom: 2rem;
 }
 
+footer {
+    display: flex;
+    gap: 1rem;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+}
+footer > * {
+    margin: 1em 0;
+    min-width: 100%;
+    scroll-snap-align: start;
+    white-space: nowrap;
+}
+
 .navbar {
     display: flex;
     margin-bottom: 0.5rem;

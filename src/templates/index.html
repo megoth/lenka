@@ -46,14 +46,13 @@
         <div class="navbar-end">
             {% if lang == 'en' %}
             <a href="/" class="navbar-item">
-                <img src="/norway.png" width="24" height="24" alt="Norwegian flag" style="max-height: 100%;"/>
                 {{l10n.format_value("norwegian")}}
+                <img src="/norway.png" alt="" width="24" height="24" style="max-height: 100%;"/>
             </a>
             {% elif lang == 'no' %}
             <a href="/en" class="navbar-item">
-                <img src="/united-kingdom.png" width="24" height="24" alt="United Kingdom flag"
-                     style="max-height: 100%;"/>
                 {{l10n.format_value("english")}}
+                <img src="/united-kingdom.png" alt="" width="24" height="24" style="max-height: 100%;"/>
             </a>
             {% endif %}
         </div>
@@ -86,6 +85,18 @@
             'repo_url': "https://github.com/megoth/lenka"
             }))|safe}}
         </article>
+        <footer>
+            {{markdown(l10n.format_value("copyright"))|safe}}
+            <a href="https://www.w3.org/RDF/icons/" lang="en">
+                RDF logo provided by W3C
+            </a>
+            <a href="https://www.flaticon.com/free-icons/norway" title="norway icons" lang="en">
+                Norway icons created by Freepik - Flaticon
+            </a>
+            <a href="https://www.flaticon.com/free-icons/uk-flag" title="uk flag icons" lang="en">
+                UK flag icons created by Freepik - Flaticon
+            </a>
+        </footer>
     </main>
 </div>
 </body>
