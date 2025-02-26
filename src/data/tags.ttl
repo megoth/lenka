@@ -1,0 +1,11 @@
+@prefix lenka: <https://lenka.no/#> .
+@prefix schema: <https://schema.org/> .
+
+lenka:meetup a schema:DefinedTerm ;
+    schema:name "Meetup" .
+
+lenka:oslo a schema:DefinedTerm ;
+    schema:name "Oslo" .
+
+lenka:uio a schema:DefinedTerm ;
+    schema:name "Oslo Universitet"@no, "University of Oslo"@en .

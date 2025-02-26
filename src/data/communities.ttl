@@ -4,17 +4,16 @@
 lenka:knowledge-graph-oslo a schema:Organization ;
     schema:name "Knowledge Graph Oslo" ;
     schema:url <https://www.meetup.com/knowledge-graph-oslo/> ;
-    schema:description
-        """
-       A meetup group for anyone interested in Knowledge Graphs (KGs), data exchange, linked data, accessible semantics
-       of data, and moving from data to knowledge.
+    schema:description """
+A meetup group for anyone interested in Knowledge Graphs (KGs), data exchange, linked data, accessible semantics
+of data, and moving from data to knowledge.
 
-       Topics of interest:
-       * W3C Stack (RDF, RDFS, SPARQL, OWL, SHACL), and surrounding tools and technologies
-       * Neo4j and other LPG implementations
-       * NLP, LLM, ML & GenAI related to KGs
+Topics of interest:
+* W3C Stack (RDF, RDFS, SPARQL, OWL, SHACL), and surrounding tools and technologies
+* Neo4j and other LPG implementations
+* NLP, LLM, ML & GenAI related to KGs
 
-       If you have something you want to share with the community, please reach out and we can schedule an event! 🌟
+If you have something you want to share with the community, please reach out and we can schedule an event! 🌟
 
-       Associated Slack space for discussion: [knowledgegraphoslo.slack.com](http://knowledgegraphoslo.slack.com/)
-       """ .
+Associated Slack space for discussion: [knowledgegraphoslo.slack.com](http://knowledgegraphoslo.slack.com/).""" ;
+    schema:keywords lenka:meetup, lenka:oslo .

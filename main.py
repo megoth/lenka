@@ -12,6 +12,7 @@ app = FastAPI()
 g = Graph()
 g.parse('src/data/communities.ttl')
 g.parse('src/data/courses.ttl')
+g.parse('src/data/tags.ttl')
 
 jsonld = g.serialize(format='json-ld',
                      context={"lenka": "https://lenka.no/#", "schema": "https://schema.org/",
@@ -20,8 +21,8 @@ jsonld = g.serialize(format='json-ld',
 rdfxml = g.serialize(format='xml')
 turtle = g.serialize(format='turtle')
 
-html_no = serialize_html("no")
-html_en = serialize_html("en")
+html_no = serialize_html("no", graph=g)
+html_en = serialize_html("en", graph=g)
 
 
 def read_response(request: Request, html: str):

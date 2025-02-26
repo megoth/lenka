@@ -1,5 +1,27 @@
-<!DOCTYPE html>
-<html lang="{{lang}}">
+{% macro render_list_item(item) -%}
+<li about="{{item.get('id')}}" class="card">
+    <div class="card-content">
+        <h3 class="subtitle" property="schema:name">{{item.get("name")}}</h3>
+        <div class="content" property="schema:description">
+            {{markdown(item.get("description"))|safe}}
+        </div>
+        <ul class="tags is-small" property="schema:keywords">
+            {% for tag in item.get("tags").split(";") %}
+            <li class="tag" resource="{{tag}}">#<span>{{tags[tag].get("name")}}</span></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card-footer">
+        <a href="{{item.get('url')}}" class="card-footer-item" property="schema:url"
+           resource="{{item.get('url')}}">
+            {{l10n.format_value("go-to", {
+            'thing': l10n.format_value("community").lower()
+            })}}
+        </a>
+    </div>
+</li>
+{% endmacro -%}<!DOCTYPE html>
+<html prefix="schema: https://schema.org/" lang="{{lang}}">
 <head>
     <title>{{l10n.format_value("title")}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,12 +31,12 @@
 <body>
 <div class="container">
     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
+        <h1 class="navbar-brand">
             <a class="navbar-item" href="/">
                 <img src="/rdf.gif" width="59" height="64" alt="The RDF logo" style="max-height: 100%;"/>
                 <span class="title">{{l10n.format_value("small-title")}}</span>
             </a>
-        </div>
+        </h1>
         <div class="navbar-end">
             {% if lang == 'en' %}
             <a href="/" class="navbar-item">
@@ -30,12 +52,30 @@
             {% endif %}
         </div>
     </nav>
-    <main class="content">
-        <div class="notification is-small">
-            {{markdown(l10n.format_value("introduction", {
+    <main>
+        <div class="content">
+            <div class="notification is-small">
+                {{markdown(l10n.format_value("introduction", {
                 'repo_url': "https://github.com/megoth/lenka"
-            }))|safe}}
+                }))|safe}}
+            </div>
         </div>
+        <article>
+            <h2 class="title is-3">{{l10n.format_value("communities")}}</h2>
+            <ul>
+                {% for community in communities %}
+                {{render_list_item(community)}}
+                {% endfor %}
+            </ul>
+        </article>
+        <article>
+            <h2 class="title is-3">{{l10n.format_value("courses")}}</h2>
+            <ul>
+                {% for course in courses %}
+                {{render_list_item(course)}}
+                {% endfor %}
+            </ul>
+        </article>
     </main>
 </div>
 </body>

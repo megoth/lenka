@@ -1,4 +1,9 @@
+communities = Communities
+community = Community
+course = Course
+courses = Courses
 english = English
+go-to = Go to { $thing }
 introduction = Lenka.no indexes interesting resources for linked data i Norge. If you want to add
     more information, please check out [the GitHub-repo]({ $repo_url }).
 norwegian = Norwegian
