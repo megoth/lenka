@@ -9,6 +9,7 @@ A meetup group for anyone interested in Knowledge Graphs (KGs), data exchange, l
 of data, and moving from data to knowledge.
 
 Topics of interest:
+
 * W3C Stack (RDF, RDFS, SPARQL, OWL, SHACL), and surrounding tools and technologies
 * Neo4j and other LPG implementations
 * NLP, LLM, ML & GenAI related to KGs
