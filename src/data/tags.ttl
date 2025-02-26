@@ -8,4 +8,4 @@ lenka:oslo a schema:DefinedTerm ;
     schema:name "Oslo" .
 
 lenka:uio a schema:DefinedTerm ;
-    schema:name "Oslo Universitet"@no, "University of Oslo"@en .
+    schema:name "Universitetet i Oslo"@no, "University of Oslo"@en .
