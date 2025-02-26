@@ -1,8 +1,6 @@
 main {
     padding: 0.5rem;
-}
-@media screen and (min-width: 1024px) {
-    main {
+    @media screen and (min-width: 1024px) {
         padding: 0;
     }
 }
@@ -22,6 +20,13 @@ footer > * {
     min-width: 100%;
     scroll-snap-align: start;
     white-space: nowrap;
+    @media screen and (min-width: 1024px) {
+        min-width: auto;
+    }
+}
+footer a {
+    color: var(--bulma-body-color);
+    text-decoration: underline;
 }
 
 .navbar {
