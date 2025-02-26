@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from rdflib import Graph
 from starlette.requests import Request
 from starlette.responses import PlainTextResponse
+from starlette.staticfiles import StaticFiles
+
 from build import serialize_html
 
 app = FastAPI()
@@ -41,6 +43,8 @@ def read_norwegian(request: Request):
 def read_english(request: Request):
     return read_response(request, html_en)
 
+
+app.mount("/", StaticFiles(directory="./public"), name="public")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

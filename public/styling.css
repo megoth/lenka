@@ -1,0 +1,26 @@
+main {
+    padding: 0.5rem;
+}
+@media screen and (min-width: 1024px) {
+    main {
+        padding: 0;
+    }
+}
+
+.navbar {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+.navbar-brand {
+    flex-grow: 1;
+}
+.navbar-item {
+    display: flex;
+    align-items: center;
+}
+.navbar-end {
+    align-items: center;
+    display: flex;
+    flex-grow: 0;
+    white-space: nowrap;
+}

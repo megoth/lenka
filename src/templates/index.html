@@ -3,8 +3,40 @@
 <head>
     <title>{{l10n.format_value("title")}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bulma.min.css">
+    <link rel="stylesheet" href="/styling.css">
 </head>
 <body>
-{{l10n.format_value("title")}}
+<div class="container">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="/rdf.gif" width="59" height="64" alt="The RDF logo" style="max-height: 100%;"/>
+                <span class="title">{{l10n.format_value("small-title")}}</span>
+            </a>
+        </div>
+        <div class="navbar-end">
+            {% if lang == 'en' %}
+            <a href="/" class="navbar-item">
+                <img src="/norway.png" width="24" height="24" alt="Norwegian flag" style="max-height: 100%;"/>
+                {{l10n.format_value("norwegian")}}
+            </a>
+            {% elif lang == 'no' %}
+            <a href="/en" class="navbar-item">
+                <img src="/united-kingdom.png" width="24" height="24" alt="United Kingdom flag"
+                     style="max-height: 100%;"/>
+                {{l10n.format_value("english")}}
+            </a>
+            {% endif %}
+        </div>
+    </nav>
+    <main class="content">
+        <div class="notification is-small">
+            {{markdown(l10n.format_value("introduction", {
+                'repo_url': "https://github.com/megoth/lenka"
+            }))|safe}}
+        </div>
+    </main>
+</div>
 </body>
 </html>

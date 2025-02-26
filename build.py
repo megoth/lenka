@@ -1,6 +1,7 @@
 from rdflib import Graph
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 from fluent.runtime import FluentLocalization, FluentResourceLoader
+from markdown import markdown
 
 env = Environment(
     loader=FileSystemLoader(searchpath="src/templates"),
@@ -12,7 +13,7 @@ loader = FluentResourceLoader("src/localizations/{locale}")
 
 def serialize_html(lang: str):
     l10n = FluentLocalization([lang], ["main.ftl"], loader)
-    return template.render(lang=lang, l10n=l10n)
+    return template.render(lang=lang, l10n=l10n, markdown=markdown)
 
 def build_html(lang:str):
     with open(f".build/{lang}.html", "w") as f:
