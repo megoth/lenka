@@ -2,7 +2,6 @@ from rdflib import Graph, Literal, Variable
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 from fluent.runtime import FluentLocalization, FluentResourceLoader
 from markdown import markdown
-from rdflib.plugins.sparql import prepareQuery
 
 env = Environment(
     loader=FileSystemLoader(searchpath="src/templates"),
@@ -71,9 +70,9 @@ def serialize_html(lang: str, graph: Graph):
     )
 
 
-def build_html(lang: str):
+def build_html(lang: str, graph: Graph):
     with open(f".build/{lang}.html", "w") as f:
-        f.write(serialize_html(lang))
+        f.write(serialize_html(lang, graph))
 
 
 def build():
@@ -91,8 +90,8 @@ def build():
         "url": "schema:url",
     })
 
-    build_html("en")
-    build_html("no")
+    build_html("en", g)
+    build_html("no", g)
 
     print("Build complete")
 

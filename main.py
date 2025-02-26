@@ -21,8 +21,8 @@ jsonld = g.serialize(format='json-ld',
 rdfxml = g.serialize(format='xml')
 turtle = g.serialize(format='turtle')
 
-html_no = serialize_html("no", graph=g)
-html_en = serialize_html("en", graph=g)
+html_no = serialize_html("no", g)
+html_en = serialize_html("en", g)
 
 
 def read_response(request: Request, html: str):
