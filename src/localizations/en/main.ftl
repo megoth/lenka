@@ -1,7 +1,8 @@
 about-description = On this website you'll find interesting resources for Linked Data (aka RDF,
     aka Semantic Web, aka Semantic Knowledge Graphs), with focus on those relevant for people living
     in Norway.
-    If you have feedback or want to add more information to the site, please check out [the GitHub-repo]({ $repo_url }).
+    If you have feedback or want to add more information to the site, please check
+    out [the GitHub-repo]({$repo_url}).
 
     This data is available as HTML+RDFa (the website you're reading now), Turtle, JSON-LD, and
     RDF/XML.

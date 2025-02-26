@@ -1,7 +1,8 @@
 about-description = På denne siden finner du ressurser knyttet til Linked Data (aka RDF, aka
     Semantic Web, aka semantiske kunnskapsgrafer), med fokus på de som er relevante for folk som
     bor i Norge.
-    Om du har tilbakemeldinger eller ønsker å legge til mer informasjon, sjekk ut [GitHub-repoet]({ $repo_url }).
+    Om du har tilbakemeldinger eller ønsker å legge til mer informasjon, sjekk
+    ut [GitHub-repoet]({$repo_url}).
 
     Denne informasjone er tilgjengelig som HTML+RDFa (nettsiden du leser nå), Turtle, JSON-LD, og
     RDF/XML.

@@ -57,9 +57,7 @@
     <main>
         <div class="content">
             <div class="notification is-small">
-                {{markdown(l10n.format_value("introduction", {
-                'repo_url': "https://github.com/megoth/lenka"
-                }))|safe}}
+                {{markdown(l10n.format_value("introduction"))|safe}}
             </div>
         </div>
         <article>
@@ -80,7 +78,9 @@
         </article>
         <article class="content">
             <h2 class="title is-3">{{l10n.format_value("about-title")}}</h2>
-            {{markdown(l10n.format_value("about-description"))|safe}}
+            {{markdown(l10n.format_value("about-description", {
+            'repo_url': "https://github.com/megoth/lenka"
+            }))|safe}}
         </article>
     </main>
 </div>
