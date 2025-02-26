@@ -13,6 +13,7 @@ loader = FluentResourceLoader("src/localizations/{locale}")
 
 def serialize_html(lang: str, graph: Graph):
     l10n = FluentLocalization([lang], ["main.ftl"], loader)
+    bindings = {Variable("language"): Literal(lang)}
     communities = graph.query(
         """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -28,7 +29,7 @@ def serialize_html(lang: str, graph: Graph):
             ?id schema:keywords ?tag .
         }
         GROUP BY ?id
-        """)
+        """, initBindings=bindings)
     courses = graph.query(
         """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -42,9 +43,10 @@ def serialize_html(lang: str, graph: Graph):
             ?id schema:description ?description .  
             ?id schema:url ?url .  
             ?id schema:keywords ?tag .
+            FILTER( lang(?name) = 'en' || langMatches(lang(?name), ?language) )
         }
         GROUP BY ?id
-        """)
+        """, initBindings=bindings)
     tags = {}
     for tag in graph.query("""
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -55,9 +57,9 @@ def serialize_html(lang: str, graph: Graph):
             ?id rdf:type schema:DefinedTerm .
             ?id rdf:type ?type .
             ?id schema:name ?name .  
-            FILTER( langMatches(lang(?name), ?language) || lang(?name) = '' )
+            FILTER( lang(?name) = 'en' || langMatches(lang(?name), ?language) )
         }
-        """, initBindings={Variable("language"): Literal(lang)}):
+        """, initBindings=bindings):
         tags[str(tag.get("id"))] = tag
 
     return template.render(

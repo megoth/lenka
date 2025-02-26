@@ -2,7 +2,7 @@
 @prefix schema: <https://schema.org/> .
 
 lenka:knowledge-graph-oslo a schema:Organization ;
-    schema:name "Knowledge Graph Oslo" ;
+    schema:name "Knowledge Graph Oslo"@en ;
     schema:url <https://www.meetup.com/knowledge-graph-oslo/> ;
     schema:description """
 A meetup group for anyone interested in Knowledge Graphs (KGs), data exchange, linked data, accessible semantics
@@ -16,5 +16,5 @@ Topics of interest:
 
 If you have something you want to share with the community, please reach out and we can schedule an event! 🌟
 
-Associated Slack space for discussion: [knowledgegraphoslo.slack.com](http://knowledgegraphoslo.slack.com/).""" ;
+Associated Slack space for discussion: [knowledgegraphoslo.slack.com](http://knowledgegraphoslo.slack.com/)."""@en ;
     schema:keywords lenka:meetup, lenka:oslo .

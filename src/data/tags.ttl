@@ -2,10 +2,10 @@
 @prefix schema: <https://schema.org/> .
 
 lenka:meetup a schema:DefinedTerm ;
-    schema:name "Meetup" .
+    schema:name "Meetup"@en .
 
 lenka:oslo a schema:DefinedTerm ;
-    schema:name "Oslo" .
+    schema:name "Oslo"@en, "Oslo"@no .
 
 lenka:uio a schema:DefinedTerm ;
-    schema:name "Universitetet i Oslo"@no, "University of Oslo"@en .
+    schema:name "University of Oslo"@en, "Universitetet i Oslo"@no .
