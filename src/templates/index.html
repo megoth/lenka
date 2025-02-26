@@ -35,8 +35,8 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <h1 class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img src="/rdf.gif" width="59" height="64" alt="The RDF logo" style="max-height: 100%;"/>
-                <span class="title">{{l10n.format_value("small-title")}}</span>
+                <img src="/rdf.svg" width="59" height="64" alt="The RDF logo" style="max-height: 100%;"/>
+                <span class="title">{{l10n.format_value("title-small")}}</span>
             </a>
         </h1>
         <div class="navbar-end">
@@ -77,6 +77,10 @@
                 {{render_list_item(course, "course")}}
                 {% endfor %}
             </ul>
+        </article>
+        <article class="content">
+            <h2 class="title is-3">{{l10n.format_value("about-title")}}</h2>
+            {{markdown(l10n.format_value("about-description"))|safe}}
         </article>
     </main>
 </div>
