@@ -1,4 +1,4 @@
-{% macro render_list_item(item) -%}
+{% macro render_list_item(item, type) -%}
 <li about="{{item.get('id')}}" class="card">
     <div class="card-content">
         <h3 class="subtitle" property="schema:name">{{item.get("name")}}</h3>
@@ -15,7 +15,7 @@
         <a href="{{item.get('url')}}" class="card-footer-item" property="schema:url"
            resource="{{item.get('url')}}">
             {{l10n.format_value("go-to", {
-            'thing': l10n.format_value("community").lower()
+            'thing': l10n.format_value(type).lower()
             })}}
         </a>
     </div>
@@ -64,7 +64,7 @@
             <h2 class="title is-3">{{l10n.format_value("communities")}}</h2>
             <ul>
                 {% for community in communities %}
-                {{render_list_item(community)}}
+                {{render_list_item(community, "community")}}
                 {% endfor %}
             </ul>
         </article>
@@ -72,7 +72,7 @@
             <h2 class="title is-3">{{l10n.format_value("courses")}}</h2>
             <ul>
                 {% for course in courses %}
-                {{render_list_item(course)}}
+                {{render_list_item(course, "course")}}
                 {% endfor %}
             </ul>
         </article>
