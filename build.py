@@ -19,9 +19,10 @@ def serialize_html(lang: str, graph: Graph):
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX schema: <https://schema.org/>
         
-        SELECT ?id ?name ?description ?url (GROUP_CONCAT(?tag; SEPARATOR=";") AS ?tags)
+        SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(?tag; SEPARATOR=";") AS ?tags)
         WHERE {
             ?id rdf:type schema:Organization .
+            ?id rdf:type ?type .
             ?id schema:name ?name .  
             ?id schema:description ?description .  
             ?id schema:url ?url .  
@@ -34,9 +35,10 @@ def serialize_html(lang: str, graph: Graph):
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX schema: <https://schema.org/>
         
-        SELECT ?id ?name ?description ?url (GROUP_CONCAT(?tag; SEPARATOR=";") AS ?tags)
+        SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(?tag; SEPARATOR=";") AS ?tags)
         WHERE {
             ?id rdf:type schema:Course .
+            ?id rdf:type ?type .
             ?id schema:name ?name .  
             ?id schema:description ?description .  
             ?id schema:url ?url .  
@@ -45,18 +47,18 @@ def serialize_html(lang: str, graph: Graph):
         GROUP BY ?id
         """)
     tags = {}
-    tag_query = prepareQuery("""
+    for tag in graph.query("""
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX schema: <https://schema.org/>
         
-        SELECT ?id ?name
+        SELECT ?id ?name ?type
         WHERE {
             ?id rdf:type schema:DefinedTerm .
+            ?id rdf:type ?type .
             ?id schema:name ?name .  
             FILTER( langMatches(lang(?name), ?language) || lang(?name) = '' )
         }
-        """)
-    for tag in graph.query(tag_query, initBindings={Variable("language"): Literal(lang)}):
+        """, initBindings={Variable("language"): Literal(lang)}):
         tags[str(tag.get("id"))] = tag
 
     return template.render(

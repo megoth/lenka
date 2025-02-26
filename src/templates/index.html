@@ -1,13 +1,15 @@
 {% macro render_list_item(item, type) -%}
-<li about="{{item.get('id')}}" class="card">
+<li about="{{item.get('id')}}" class="card" typeof="{{item.get('type')}}">
     <div class="card-content">
         <h3 class="subtitle" property="schema:name">{{item.get("name")}}</h3>
         <div class="content" property="schema:description">
             {{markdown(item.get("description"))|safe}}
         </div>
-        <ul class="tags is-small" property="schema:keywords">
+        <ul class="tags is-small">
             {% for tag in item.get("tags").split(";") %}
-            <li class="tag" resource="{{tag}}">#<span>{{tags[tag].get("name")}}</span></li>
+            <li property="schema:keywords" resource="{{tag}}" class="tag" typeof="{{tags[tag].get('type')}}">
+                <span property="schema:name">{{tags[tag].get("name")}}</span>
+            </li>
             {% endfor %}
         </ul>
     </div>
