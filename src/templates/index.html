@@ -37,11 +37,11 @@
                 {{markdown(l10n.format_value("introduction"))|safe}}
             </div>
         </div>
-        {% macro render_list(items, type, plural) -%}
-        <section id="{{plural}}" class="bulma-block">
-            <h2 class="bulma-title bulma-is-3">{{l10n.format_value(plural)}}</h2>
+        {% for index in indexes %}
+        <section id="{{index.plural}}" class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value(index.plural)}}</h2>
             <div class="cards">
-                {% for item in items %}
+                {% for item in index.list %}
                 <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
                     <div class="bulma-card-content">
                         <h3 class="bulma-title bulma-is-5" property="schema:name" lang="{{item.get('name').language}}">
@@ -66,7 +66,7 @@
                         <a href="{{item.get('url')}}" class="bulma-card-footer-item" property="schema:url"
                            resource="{{item.get('url')}}">
                             {{l10n.format_value("go-to", {
-                            'thing': l10n.format_value(type).lower()
+                            'thing': l10n.format_value(index.single).lower()
                             })}}
                         </a>
                     </div>
@@ -74,12 +74,7 @@
                 {% endfor %}
             </div>
         </section>
-        {% endmacro -%}
-        {{render_list(communities, "community", "communities")}}
-        {{render_list(courses, "course", "courses")}}
-        {{render_list(data_catalogs, "data-catalog", "data-catalogs")}}
-        {{render_list(readings, "reading-material", "reading-materials")}}
-        {{render_list(applications, "application", "applications")}}
+        {% endfor %}
         <section id="about" class="bulma-block">
             <h2 class="bulma-title bulma-is-3">{{l10n.format_value("about-title")}}</h2>
             <div class="bulma-content">

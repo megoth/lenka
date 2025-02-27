@@ -40,7 +40,7 @@ def query_content(rdf_class: str):
                     ?id schema:description ?description .  
                     ?id schema:url ?url .  
                     ?id schema:keywords ?tag .
-                    FILTER(lang(?description) = 'en' && not exists {{
+                    FILTER(lang(?description) = "en" && not exists {{
                         ?id schema:description ?description2
                         FILTER(langMatches(lang(?description2), ?language))
                     }})
@@ -62,7 +62,7 @@ def query_tags():
             ?id rdf:type schema:DefinedTerm .
             ?id rdf:type ?type .
             ?id schema:name ?name .  
-            FILTER( lang(?name) = 'en' || langMatches(lang(?name), ?language) )
+            FILTER( lang(?name) = "en" || langMatches(lang(?name), ?language) )
         }
         """
 
@@ -74,7 +74,7 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
     communities = graph.query(query_content("schema:Organization"), initBindings=bindings)
     courses = graph.query(query_content("schema:Course"), initBindings=bindings)
     data_catalogs = graph.query(query_content("schema:DataCatalog"), initBindings=bindings)
-    readings = graph.query(query_content("schema:CreativeWork"), initBindings=bindings)
+    reading_materials = graph.query(query_content("schema:CreativeWork"), initBindings=bindings)
     applications = graph.query(query_content("schema:SoftwareApplication"), initBindings=bindings)
     tags = {str(tag.get("id")): tag for tag in graph.query(query_tags(), initBindings=bindings)}
 
@@ -83,30 +83,20 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
     rdfxml = kwargs.get("rdfxml", None)
 
     return template.render(
-        applications=applications,
-        communities=communities,
-        courses=courses,
-        data_catalogs=data_catalogs,
+        indexes=[
+            {"list": communities, "single": "community", "plural": "communities"},
+            {"list": courses, "single": "course", "plural": "courses"},
+            {"list": data_catalogs, "single": "data-catalog", "plural": "data-catalogs"},
+            {"list": reading_materials, "single": "reading-material", "plural": "reading-materials"},
+            {"list": applications, "single": "application", "plural": "applications"},
+        ],
         l10n=l10n,
         lang=lang,
         markdown=markdown,
-        readings=readings,
         serializations=[serialization for serialization in [
-            {
-                'label': 'JSON-LD',
-                'text': jsonld,
-                'code': 'json',
-            } if jsonld else None,
-            {
-                'label': 'Turtle',
-                'text': turtle,
-                'code': 'turtle',
-            } if turtle else None,
-            {
-                'label': 'RDF/XML',
-                'text': rdfxml,
-                'code': 'xml',
-            } if rdfxml else None
+            {"label": "JSON-LD", "text": jsonld, "code": "json"} if jsonld else None,
+            {"label": "Turtle", "text": turtle, "code": "turtle"} if turtle else None,
+            {"label": "RDF/XML", "text": rdfxml, "code": "xml"} if rdfxml else None
         ] if serialization is not None],
         tags=tags,
     )
@@ -119,12 +109,12 @@ def build_html(lang: str, graph: Graph):
 
 def build():
     g = Graph()
-    g.parse('src/data/communities.ttl')
-    g.parse('src/data/courses.ttl')
+    g.parse("src/data/communities.ttl")
+    g.parse("src/data/courses.ttl")
 
-    g.serialize(destination='.build/data.ttl', format='turtle')
-    g.serialize(destination='.build/data.xml', format='xml')
-    g.serialize(destination='.build/data.json', format='json-ld', context={
+    g.serialize(destination=".build/data.ttl", format="turtle")
+    g.serialize(destination=".build/data.xml", format="xml")
+    g.serialize(destination=".build/data.json", format="json-ld", context={
         "lenka": "https://lenka.no#",
         "schema": "https://schema.org/",
         "description": "schema:description",
