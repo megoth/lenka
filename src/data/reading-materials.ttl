@@ -66,7 +66,7 @@ structured data on the Internet."""@en ;
 
 lenka:rdfjs-dev a schema:CreativeWork ;
     schema:name "RDF + JS = ❤️"@en ;
-    schema:url <https://www.w3.org/TR/?tags[0]=data> ;
+    schema:url <https://rdfjs.dev/> ;
     schema:description
         """
 En liste med guider og hjelpemateriell for å finne hvilket bibliotek man ønsker å ta i bruk i sitt JavaScript eller
