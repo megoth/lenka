@@ -39,7 +39,7 @@
         </div>
         {% macro render_list(items, type, plural) -%}
         <section id="{{plural}}" class="bulma-block">
-            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("communities")}}</h2>
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value(plural)}}</h2>
             <div class="cards">
                 {% for item in items %}
                 <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
@@ -77,7 +77,7 @@
         {% endmacro -%}
         {{render_list(communities, "community", "communities")}}
         {{render_list(courses, "course", "courses")}}
-        {{render_list(data_catalogs, "data-catalog", "data_catalogs")}}
+        {{render_list(data_catalogs, "data-catalog", "data-catalogs")}}
         {{render_list(readings, "reading-material", "reading-materials")}}
         {{render_list(applications, "application", "applications")}}
         <section id="about" class="bulma-block">

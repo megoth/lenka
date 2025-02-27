@@ -16,8 +16,8 @@ about-description = On this website you'll find interesting resources for Linked
 
     `curl --header "Accept: text/turtle" https://lenka.vercel.app`
 about-title = About lenka.no
-applications-and-libraries = Applications and libraries
 application = Application
+applications = Applications and libraries
 communities = Communities
 community = Community
 copyright = This page is licensed with [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

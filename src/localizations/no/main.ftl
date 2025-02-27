@@ -16,8 +16,8 @@ about-description = På denne siden finner du ressurser knyttet til Linked Data 
 
     `curl --header "Accept: text/turtle" https://lenka.vercel.app`
 about-title = Om lenka.no
-applications-and-libraries = Applikasjoner og bibliotek
 application = Applikasjon
+applications = Applikasjoner og bibliotek
 communities = Møteplasser
 community = Møteplass
 copyright = Denne siden er lisensert med [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
