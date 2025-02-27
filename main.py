@@ -20,12 +20,12 @@ g.parse('src/data/tags.ttl')
 jsonld = g.serialize(format='json-ld',
                      context={"lenka": "https://lenka.no#", "schema": "https://schema.org/",
                               "description": "schema:description", "name": "schema:name",
-                              "url": "schema:url", })
+                              "url": "schema:url", "keywords": "schema:keywords" })
 rdfxml = g.serialize(format='xml')
 turtle = g.serialize(format='turtle')
 
-html_no = serialize_html("no", g)
-html_en = serialize_html("en", g)
+html_no = serialize_html("no", g, jsonld=jsonld, turtle=turtle, rdfxml=rdfxml)
+html_en = serialize_html("en", g, jsonld=jsonld, turtle=turtle, rdfxml=rdfxml)
 
 
 def read_response(request: Request, html: str):

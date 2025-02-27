@@ -10,7 +10,8 @@ env = Environment(
 template = env.get_template("index.html")
 loader = FluentResourceLoader("src/localizations/{locale}")
 
-def query(rdf_class: str):
+
+def query_content(rdf_class: str):
     return f"""
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX schema: <https://schema.org/>
@@ -51,16 +52,8 @@ def query(rdf_class: str):
         """
 
 
-def serialize_html(lang: str, graph: Graph):
-    l10n = FluentLocalization([lang], ["main.ftl"], loader)
-    bindings = {Variable("language"): Literal(lang)}
-    communities = graph.query(query("schema:Organization"), initBindings=bindings)
-    courses = graph.query(query("schema:Course"), initBindings=bindings)
-    data_catalogs = graph.query(query("schema:DataCatalog"), initBindings=bindings)
-    readings = graph.query(query("schema:CreativeWork"), initBindings=bindings)
-    applications = graph.query(query("schema:SoftwareApplication"), initBindings=bindings)
-    tags = {}
-    for tag in graph.query("""
+def query_tags():
+    return """
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX schema: <https://schema.org/>
         
@@ -71,8 +64,23 @@ def serialize_html(lang: str, graph: Graph):
             ?id schema:name ?name .  
             FILTER( lang(?name) = 'en' || langMatches(lang(?name), ?language) )
         }
-        """, initBindings=bindings):
-        tags[str(tag.get("id"))] = tag
+        """
+
+
+def serialize_html(lang: str, graph: Graph, *args, **kwargs):
+    l10n = FluentLocalization([lang], ["main.ftl"], loader)
+
+    bindings = {Variable("language"): Literal(lang)}
+    communities = graph.query(query_content("schema:Organization"), initBindings=bindings)
+    courses = graph.query(query_content("schema:Course"), initBindings=bindings)
+    data_catalogs = graph.query(query_content("schema:DataCatalog"), initBindings=bindings)
+    readings = graph.query(query_content("schema:CreativeWork"), initBindings=bindings)
+    applications = graph.query(query_content("schema:SoftwareApplication"), initBindings=bindings)
+    tags = {str(tag.get("id")): tag for tag in graph.query(query_tags(), initBindings=bindings)}
+
+    jsonld = kwargs.get("jsonld", None)
+    turtle = kwargs.get("turtle", None)
+    rdfxml = kwargs.get("rdfxml", None)
 
     return template.render(
         applications=applications,
@@ -83,6 +91,23 @@ def serialize_html(lang: str, graph: Graph):
         lang=lang,
         markdown=markdown,
         readings=readings,
+        serializations=[serialization for serialization in [
+            {
+                'label': 'JSON-LD',
+                'text': jsonld,
+                'code': 'json',
+            } if jsonld else None,
+            {
+                'label': 'Turtle',
+                'text': turtle,
+                'code': 'turtle',
+            } if turtle else None,
+            {
+                'label': 'RDF/XML',
+                'text': rdfxml,
+                'code': 'xml',
+            } if rdfxml else None
+        ] if serialization is not None],
         tags=tags,
     )
 

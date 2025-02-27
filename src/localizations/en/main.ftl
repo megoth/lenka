@@ -30,6 +30,10 @@ introduction = Lenka.no indexes interesting resources for linked data in Norway.
 norwegian = Norsk
 reading-material = Reading material
 reading-materials = Reading materials
+serializations-description = As mentioned the supported formats of the data on this website are
+    HTML+RDFa, JSON-LD, Turtle, and RDF/XML. The latter three are presented below so for those
+    curious.
+serializations-title = Serializations
 slogan = Resources for Linked Data enthusiasts in Norway
 title = Lenka.no - Resources for Linked Data enthusiasts in Norway
 title-small = Lenka.no

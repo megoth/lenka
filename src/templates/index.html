@@ -1,57 +1,30 @@
-{% macro render_list_item(item, type) -%}
-<li about="{{item.get('id')}}" class="card" typeof="{{item.get('type')}}">
-    <div class="card-content">
-        <h3 class="subtitle" property="schema:name" lang="{{item.get('name').language}}">
-            {{item.get("name")}}
-        </h3>
-        <ul class="tags is-small">
-            {% for tag in item.get("tags").split(";") %}
-            <li property="schema:keywords" resource="{{tag}}" class="tag" typeof="{{tags[tag].get('type')}}">
-                <span property="schema:name" lang="{{tags[tag].get('name').language}}">
-                    {{tags[tag].get("name")}}
-                </span>
-            </li>
-            {% endfor %}
-        </ul>
-        <div class="content" property="schema:description" lang="{{item.get('description').language}}">
-            {{markdown(item.get("description"))|safe}}
-        </div>
-    </div>
-    <div class="card-footer">
-        <a href="{{item.get('url')}}" class="card-footer-item" property="schema:url"
-           resource="{{item.get('url')}}">
-            {{l10n.format_value("go-to", {
-            'thing': l10n.format_value(type).lower()
-            })}}
-        </a>
-    </div>
-</li>
-{% endmacro -%}<!DOCTYPE html>
-<html prefix="schema: https://schema.org/" lang="{{lang}}">
+<!DOCTYPE html>
+<html prefix="schema: https://schema.org/" lang="{{lang}}" data-bulma-theme=light>
 <head>
     <title>{{l10n.format_value("title")}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/bulma.min.css">
+    <link rel="stylesheet" href="/bulma-prefixed.min.css">
     <link rel="stylesheet" href="/styling.css">
+    <link rel="stylesheet" href="/prism.css"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body>
-<div class="container">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <h1 class="navbar-brand">
-            <a class="navbar-item" href="/">
+<body class="line-numbers">
+<div class="bulma-container">
+    <nav class="bulma-navbar" role="navigation" aria-label="main navigation">
+        <h1 class="bulma-navbar-brand">
+            <a class="bulma-navbar-item" href="/">
                 <img src="/rdf.svg" width="59" height="64" alt="The RDF logo" style="max-height: 100%;"/>
-                <span class="title">{{l10n.format_value("title-small")}}</span>
+                <span class="bulma-title">{{l10n.format_value("title-small")}}</span>
             </a>
         </h1>
-        <div class="navbar-end">
+        <div class="bulma-navbar-end">
             {% if lang == 'en' %}
-            <a href="/" class="navbar-item">
+            <a href="/" class="bulma-navbar-item">
                 {{l10n.format_value("norwegian")}}
                 <img src="/norway.png" alt="" width="24" height="24" style="max-height: 100%;"/>
             </a>
             {% elif lang == 'no' %}
-            <a href="/en" class="navbar-item">
+            <a href="/en" class="bulma-navbar-item">
                 {{l10n.format_value("english")}}
                 <img src="/united-kingdom.png" alt="" width="24" height="24" style="max-height: 100%;"/>
             </a>
@@ -59,58 +32,104 @@
         </div>
     </nav>
     <main>
-        <div class="content">
-            <div class="notification is-small">
+        <div class="bulma-content">
+            <div class="bulma-notification bulma-is-small">
                 {{markdown(l10n.format_value("introduction"))|safe}}
             </div>
         </div>
-        <article>
-            <h2 class="title is-3">{{l10n.format_value("communities")}}</h2>
-            <ul class="cards">
+        {% macro render_list_item(item, type) -%}
+        <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
+            <div class="bulma-card-content">
+                <h3 class="bulma-title bulma-is-5" property="schema:name" lang="{{item.get('name').language}}">
+                    {{item.get("name")}}
+                </h3>
+                <ul class="bulma-tags bulma-is-small">
+                    {% for tag in item.get("tags").split(";") %}
+                    <li property="schema:keywords" resource="{{tag}}" class="bulma-tag"
+                        typeof="{{tags[tag].get('type')}}">
+                <span property="schema:name" lang="{{tags[tag].get('name').language}}">
+                    {{tags[tag].get("name")}}
+                </span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="bulma-content" property="schema:description" lang="{{item.get('description').language}}">
+                    {{markdown(item.get("description"))|safe}}
+                </div>
+            </div>
+            <div class="bulma-card-footer">
+                <a href="{{item.get('url')}}" class="bulma-card-footer-item" property="schema:url"
+                   resource="{{item.get('url')}}">
+                    {{l10n.format_value("go-to", {
+                    'thing': l10n.format_value(type).lower()
+                    })}}
+                </a>
+            </div>
+        </article>
+        {% endmacro -%}
+        <section class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("communities")}}</h2>
+            <div class="cards">
                 {% for community in communities %}
                 {{render_list_item(community, "community")}}
                 {% endfor %}
-            </ul>
-        </article>
-        <article>
-            <h2 class="title is-3">{{l10n.format_value("courses")}}</h2>
-            <ul class="cards">
+            </div>
+        </section>
+        <section class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("courses")}}</h2>
+            <div class="cards">
                 {% for course in courses %}
                 {{render_list_item(course, "course")}}
                 {% endfor %}
-            </ul>
-        </article>
-        <article>
-            <h2 class="title is-3">{{l10n.format_value("data-catalogs")}}</h2>
-            <ul class="cards">
+            </div>
+        </section>
+        <section class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("data-catalogs")}}</h2>
+            <div class="cards">
                 {% for catalog in data_catalogs %}
                 {{render_list_item(catalog, "data-catalog")}}
                 {% endfor %}
-            </ul>
-        </article>
-        <article>
-            <h2 class="title is-3">{{l10n.format_value("reading-materials")}}</h2>
-            <ul class="cards">
+            </div>
+        </section>
+        <section class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("reading-materials")}}</h2>
+            <div class="cards">
                 {% for reading in readings %}
                 {{render_list_item(reading, "reading-material")}}
                 {% endfor %}
-            </ul>
-        </article>
-        <article>
-            <h2 class="title is-3">{{l10n.format_value("applications-and-libraries")}}</h2>
-            <ul class="cards">
+            </div>
+        </section>
+        <section class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("applications-and-libraries")}}</h2>
+            <div class="cards">
                 {% for application in applications %}
                 {{render_list_item(application, "application")}}
                 {% endfor %}
-            </ul>
-        </article>
-        <article class="content">
-            <h2 class="title is-3">{{l10n.format_value("about-title")}}</h2>
-            {{markdown(l10n.format_value("about-description", {
-            'repo_url': "https://github.com/megoth/lenka"
-            }))|safe}}
-        </article>
-        <footer>
+            </div>
+        </section>
+        <section class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("about-title")}}</h2>
+            <div class="bulma-content">
+                {{markdown(l10n.format_value("about-description", {
+                'repo_url': "https://github.com/megoth/lenka"
+                }))|safe}}
+            </div>
+        </section>
+        {% if serializations|length > 0 %}
+        <section>
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("serializations-title")}}</h2>
+            <div class="bulma-content">
+                {{markdown(l10n.format_value("serializations-description"))|safe}}
+            </div>
+            {% for serialization in serializations %}
+            <article class="bulma-block">
+                <h3 class="bulma-title bulma-is-5">{{serialization.label}}</h3>
+                <pre class="code"><code class="language-{{serialization.code}}">{{serialization.text}}</code></pre>
+            </article>
+            {% endfor %}
+        </section>
+        {% endif %}
+        <footer class="bulma-block">
             {{markdown(l10n.format_value("copyright"))|safe}}
             <a href="https://www.w3.org/RDF/icons/" lang="en">
                 RDF logo provided by W3C
@@ -127,5 +146,6 @@
         </footer>
     </main>
 </div>
+<script src="/prism.js"></script>
 </body>
 </html>

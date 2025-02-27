@@ -30,6 +30,10 @@ go-to = Gå til { $thing }
 introduction = Lenka.no samler interessante ressurser for lenka data i Norge.
 reading-material = Lesestoff
 reading-materials = Lesestoff
+serializations-description = Som nevnt tidligere så støtter nettsiden tre andre format utover slik
+    den er presentert her: JSON-LD, Turtle, og RDF/XML. For de nysgjerrige er teksten til disse
+    også presentert under.
+serializations-title = Serialiseringer
 slogan = Ressurser for Lenka Data-entusiaster i Norge
 title = Lenka.no - Ressurser for Lenka Data-entusiaster i Norge
 title-small = Lenka.no
