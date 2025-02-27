@@ -15,7 +15,7 @@ g.parse('src/data/courses.ttl')
 g.parse('src/data/tags.ttl')
 
 jsonld = g.serialize(format='json-ld',
-                     context={"lenka": "https://lenka.no/#", "schema": "https://schema.org/",
+                     context={"lenka": "https://lenka.no#", "schema": "https://schema.org/",
                               "description": "schema:description", "name": "schema:name",
                               "url": "schema:url", })
 rdfxml = g.serialize(format='xml')

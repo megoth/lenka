@@ -1,4 +1,4 @@
-@prefix lenka: <https://lenka.no/#> .
+@prefix lenka: <https://lenka.no#> .
 @prefix schema: <https://schema.org/> .
 
 lenka:meetup a schema:DefinedTerm ;
