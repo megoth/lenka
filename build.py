@@ -15,16 +15,39 @@ def query(rdf_class: str):
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX schema: <https://schema.org/>
         
-        SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(DISTINCT ?tag; SEPARATOR=";") AS ?tags)
-        WHERE {{
-            ?id rdf:type {rdf_class} .
-            ?id rdf:type ?type .
-            ?id schema:name ?name .  
-            ?id schema:description ?description .  
-            ?id schema:url ?url .  
-            ?id schema:keywords ?tag .
+        SELECT * WHERE {{
+            {{
+                SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(DISTINCT ?tag; SEPARATOR=";") AS ?tags)
+                WHERE {{
+                    ?id rdf:type {rdf_class} .
+                    ?id rdf:type ?type .
+                    ?id schema:name ?name .  
+                    ?id schema:description ?description .  
+                    ?id schema:url ?url .  
+                    ?id schema:keywords ?tag .
+                    FILTER(langMatches(lang(?description), ?language))
+                }}
+                GROUP BY ?id
+            }}
+            UNION
+            {{
+                SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(DISTINCT ?tag; SEPARATOR=";") AS ?tags)
+                WHERE {{
+                    ?id rdf:type {rdf_class} .
+                    ?id rdf:type ?type .
+                    ?id schema:name ?name .  
+                    ?id schema:description ?description .  
+                    ?id schema:url ?url .  
+                    ?id schema:keywords ?tag .
+                    FILTER(lang(?description) = 'en' && not exists {{
+                        ?id schema:description ?description2
+                        FILTER(langMatches(lang(?description2), ?language))
+                    }})
+                }}
+                GROUP BY ?id
+            }}
         }}
-        GROUP BY ?id
+        ORDER BY ASC(?id)
         """
 
 

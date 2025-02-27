@@ -8,7 +8,7 @@ lenka:apache-jena a schema:SoftwareApplication ;
 Apache Jena (or Jena in short) is a free and open source Java framework for building semantic web and Linked Data
 applications. The framework is composed of different APIs interacting together to process RDF data.
 """@en ;
-    schema:keywords lenka:library, lenka:java, lenka:sparql .
+    schema:keywords lenka:library, lenka:java .
 
 lenka:apache-jena-fuseki a schema:SoftwareApplication ;
     schema:name "Apache Jena Fuseki"@en ;
@@ -93,7 +93,7 @@ RDFLib is a pure Python package for working with RDF. RDFLib contains most thing
 - SPARQL function extension mechanisms
 
 Many 3rd party packages support additional Stores, parsers etc."""@en ;
-    schema:keywords lenka:python .
+    schema:keywords lenka:library,  lenka:python .
 
 lenka:rdfox a schema:SoftwareApplication ;
     schema:name "RDFox"@en ;
