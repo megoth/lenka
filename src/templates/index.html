@@ -80,6 +80,14 @@
             </ul>
         </article>
         <article>
+            <h2 class="title is-3">{{l10n.format_value("data-catalogs")}}</h2>
+            <ul class="cards">
+                {% for catalog in data_catalogs %}
+                {{render_list_item(catalog, "data-catalog")}}
+                {% endfor %}
+            </ul>
+        </article>
+        <article>
             <h2 class="title is-3">{{l10n.format_value("reading-materials")}}</h2>
             <ul class="cards">
                 {% for reading in readings %}

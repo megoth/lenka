@@ -33,6 +33,7 @@ def serialize_html(lang: str, graph: Graph):
     bindings = {Variable("language"): Literal(lang)}
     communities = graph.query(query("schema:Organization"), initBindings=bindings)
     courses = graph.query(query("schema:Course"), initBindings=bindings)
+    data_catalogs = graph.query(query("schema:DataCatalog"), initBindings=bindings)
     readings = graph.query(query("schema:CreativeWork"), initBindings=bindings)
     applications = graph.query(query("schema:SoftwareApplication"), initBindings=bindings)
     tags = {}
@@ -54,6 +55,7 @@ def serialize_html(lang: str, graph: Graph):
         applications=applications,
         communities=communities,
         courses=courses,
+        data_catalogs=data_catalogs,
         l10n=l10n,
         lang=lang,
         markdown=markdown,

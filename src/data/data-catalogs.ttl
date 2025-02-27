@@ -1,0 +1,23 @@
+@prefix lenka: <https://lenka.no#> .
+@prefix schema: <https://schema.org/> .
+
+lenka:data-norge-no a schema:DataCatalog ;
+    schema:name "data.norge.no"@en ;
+    schema:url <https://data.norge.no/> ;
+    schema:description """
+Data.norge.no gir en omfattende oversikt over datasett, begreper, API-er, informasjonsmodeller, tjenester og hendelser
+i offentlig sektor, inkludert data med juridiske begrensninger som taushetsplikt eller personopplysninger."""@no,
+        """
+Data.norge.no provides a comprehensive overview of datasets, concepts, APIs, information models, services, and events
+in the public sector, including data with legal restrictions such as confidentiality or personal information."""@en ;
+    schema:keywords lenka:data-catalog .
+
+lenka:data-stortinget-no a schema:DataCatalog ;
+    schema:name "Stortinget | Åpne data"@no ;
+    schema:url <https://data.stortinget.no/> ;
+    schema:description """
+Stortingets datatjeneste tilbyr uttrekk fra databaser som benyttes i Stortingets parlamentariske saksbehandling."""@no,
+        """
+The data service of the Norwegian parliament, Stortinget, which offer datasets that are used in the work of the
+parliamentary organization."""@en ;
+    schema:keywords lenka:data-catalog .

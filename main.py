@@ -13,6 +13,7 @@ g = Graph()
 g.parse('src/data/applications.ttl')
 g.parse('src/data/communities.ttl')
 g.parse('src/data/courses.ttl')
+g.parse('src/data/data-catalogs.ttl')
 g.parse('src/data/reading-materials.ttl')
 g.parse('src/data/tags.ttl')
 

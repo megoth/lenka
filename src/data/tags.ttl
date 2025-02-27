@@ -10,6 +10,9 @@ lenka:c a schema:DefinedTerm ;
 lenka:cpp a schema:DefinedTerm ;
     schema:name "C++"@en .
 
+lenka:data-catalog a schema:DefinedTerm ;
+    schema:name "Data Catalogue"@en, "Data katalog"@no .
+
 lenka:dotnet a schema:DefinedTerm ;
     schema:name ".NET"@en .
 
