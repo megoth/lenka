@@ -99,6 +99,7 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
             {"label": "RDF/XML", "text": rdfxml, "code": "xml"} if rdfxml else None
         ] if serialization is not None],
         tags=tags,
+        url="/" if lang == "no" else f"/{lang}"
     )
 
 

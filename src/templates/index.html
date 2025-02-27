@@ -32,11 +32,16 @@
         </div>
     </nav>
     <main>
-        <div class="bulma-content">
+        <nav class="bulma-block bulma-content">
             <div class="bulma-notification bulma-is-small">
                 {{markdown(l10n.format_value("introduction"))|safe}}
+                <ul>
+                    {% for index in indexes %}
+                    <li><a href="{{url}}#{{index.plural}}">{{l10n.format_value(index.plural)}}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
-        </div>
+        </nav>
         {% for index in indexes %}
         <section id="{{index.plural}}" class="bulma-block">
             <h2 class="bulma-title bulma-is-3">{{l10n.format_value(index.plural)}}</h2>

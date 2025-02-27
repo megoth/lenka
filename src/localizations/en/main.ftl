@@ -34,7 +34,7 @@ introduction = Lenka.no indexes interesting resources related to "lenka data" (a
     related to Norway
 norwegian = Norsk
 reading-material = Reading material
-reading-materials = Reading materials
+reading-materials = Reading material
 serializations-description = As mentioned the supported formats of the data on this website are
     HTML+RDFa, JSON-LD, Turtle, and RDF/XML. The latter three are presented below.
 serializations-title = Serializations
