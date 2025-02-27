@@ -37,77 +37,50 @@
                 {{markdown(l10n.format_value("introduction"))|safe}}
             </div>
         </div>
-        {% macro render_list_item(item, type) -%}
-        <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
-            <div class="bulma-card-content">
-                <h3 class="bulma-title bulma-is-5" property="schema:name" lang="{{item.get('name').language}}">
-                    {{item.get("name")}}
-                </h3>
-                <ul class="bulma-tags bulma-is-small">
-                    {% for tag in item.get("tags").split(";") %}
-                    <li property="schema:keywords" resource="{{tag}}" class="bulma-tag"
-                        typeof="{{tags[tag].get('type')}}">
-                <span property="schema:name" lang="{{tags[tag].get('name').language}}">
-                    {{tags[tag].get("name")}}
-                </span>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <div class="bulma-content" property="schema:description" lang="{{item.get('description').language}}">
-                    {{markdown(item.get("description"))|safe}}
-                </div>
-            </div>
-            <div class="bulma-card-footer">
-                <a href="{{item.get('url')}}" class="bulma-card-footer-item" property="schema:url"
-                   resource="{{item.get('url')}}">
-                    {{l10n.format_value("go-to", {
-                    'thing': l10n.format_value(type).lower()
-                    })}}
-                </a>
-            </div>
-        </article>
-        {% endmacro -%}
-        <section class="bulma-block">
+        {% macro render_list(items, type, plural) -%}
+        <section id="{{plural}}" class="bulma-block">
             <h2 class="bulma-title bulma-is-3">{{l10n.format_value("communities")}}</h2>
             <div class="cards">
-                {% for community in communities %}
-                {{render_list_item(community, "community")}}
+                {% for item in items %}
+                <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
+                    <div class="bulma-card-content">
+                        <h3 class="bulma-title bulma-is-5" property="schema:name" lang="{{item.get('name').language}}">
+                            {{item.get("name")}}
+                        </h3>
+                        <ul class="bulma-tags bulma-is-small">
+                            {% for tag in item.get("tags").split(";") %}
+                            <li property="schema:keywords" resource="{{tag}}" class="bulma-tag"
+                                typeof="{{tags[tag].get('type')}}">
+                                <span property="schema:name" lang="{{tags[tag].get('name').language}}">
+                                    {{tags[tag].get("name")}}
+                                </span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="bulma-content" property="schema:description"
+                             lang="{{item.get('description').language}}">
+                            {{markdown(item.get("description"))|safe}}
+                        </div>
+                    </div>
+                    <div class="bulma-card-footer">
+                        <a href="{{item.get('url')}}" class="bulma-card-footer-item" property="schema:url"
+                           resource="{{item.get('url')}}">
+                            {{l10n.format_value("go-to", {
+                            'thing': l10n.format_value(type).lower()
+                            })}}
+                        </a>
+                    </div>
+                </article>
                 {% endfor %}
             </div>
         </section>
-        <section class="bulma-block">
-            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("courses")}}</h2>
-            <div class="cards">
-                {% for course in courses %}
-                {{render_list_item(course, "course")}}
-                {% endfor %}
-            </div>
-        </section>
-        <section class="bulma-block">
-            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("data-catalogs")}}</h2>
-            <div class="cards">
-                {% for catalog in data_catalogs %}
-                {{render_list_item(catalog, "data-catalog")}}
-                {% endfor %}
-            </div>
-        </section>
-        <section class="bulma-block">
-            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("reading-materials")}}</h2>
-            <div class="cards">
-                {% for reading in readings %}
-                {{render_list_item(reading, "reading-material")}}
-                {% endfor %}
-            </div>
-        </section>
-        <section class="bulma-block">
-            <h2 class="bulma-title bulma-is-3">{{l10n.format_value("applications-and-libraries")}}</h2>
-            <div class="cards">
-                {% for application in applications %}
-                {{render_list_item(application, "application")}}
-                {% endfor %}
-            </div>
-        </section>
-        <section class="bulma-block">
+        {% endmacro -%}
+        {{render_list(communities, "community", "communities")}}
+        {{render_list(courses, "course", "courses")}}
+        {{render_list(data_catalogs, "data-catalog", "data_catalogs")}}
+        {{render_list(readings, "reading-material", "reading-materials")}}
+        {{render_list(applications, "application", "applications")}}
+        <section id="about" class="bulma-block">
             <h2 class="bulma-title bulma-is-3">{{l10n.format_value("about-title")}}</h2>
             <div class="bulma-content">
                 {{markdown(l10n.format_value("about-description", {
@@ -116,7 +89,7 @@
             </div>
         </section>
         {% if serializations|length > 0 %}
-        <section>
+        <section id="serializations">
             <h2 class="bulma-title bulma-is-3">{{l10n.format_value("serializations-title")}}</h2>
             <div class="bulma-content">
                 {{markdown(l10n.format_value("serializations-description"))|safe}}
