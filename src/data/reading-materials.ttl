@@ -1,6 +1,12 @@
 @prefix lenka: <https://lenka.no#> .
 @prefix schema: <https://schema.org/> .
 
+lenka:awesome-semantic-web a schema:CreativeWork ;
+    schema:name "Awesome Semantic Web"@en ;
+    schema:url <https://github.com/semantalytics/awesome-semantic-web> ;
+    schema:description "A curated list of various semantic web and linked data resources."@en ;
+    schema:keywords lenka:resource-collection .
+
 lenka:w3c-specifications a schema:CreativeWork ;
     schema:name
         "W3C RDF standarder og pågående arbeid"@no,
@@ -9,7 +15,7 @@ lenka:w3c-specifications a schema:CreativeWork ;
     schema:description
         "En liste over alle W3C standarder og arbeid pågående for semantiske kunnskapsgrafer"@no,
         "A list of all W3C standards and drafts related to semantic knowledge graphs"@en ;
-    schema:keywords lenka:specification .
+    schema:keywords lenka:specification, lenka:resource-collection .
 
 lenka:shacl-spec a schema:CreativeWork ;
     schema:name "Shapes Constraint Language (SHACL)"@en ;
@@ -37,7 +43,7 @@ lenka:rdf-js-org a schema:CreativeWork ;
     schema:description
         "En liste over alle standarder og bibliotek for arbeid med semantiske kunnskapsgrafer i JavaScript"@no,
         "A list of all standards and drafts related to semantic knowledge graphs in JavaScript"@en ;
-    schema:keywords lenka:specification, lenka:javascript .
+    schema:keywords lenka:resource-collection, lenka:javascript .
 
 lenka:lov a schema:CreativeWork ;
     schema:name "Linked Open Vocabularies (LOV)"@en ;
@@ -68,4 +74,4 @@ TypeScript prosjekt"""@no,
         """
 A list og guides and material to help you figure out which library you want to make use of in your JavaScript or
 TypeScript project."""@en ;
-    schema:keywords lenka:javascript, lenka:typescript .
+    schema:keywords lenka:resource-collection, lenka:javascript, lenka:typescript .

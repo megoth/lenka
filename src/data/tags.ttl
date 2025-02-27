@@ -37,6 +37,9 @@ lenka:oslo a schema:DefinedTerm ;
 lenka:python a schema:DefinedTerm ;
     schema:name "Python"@en .
 
+lenka:resource-collection a schema:DefinedTerm ;
+    schema:name "Resource Collection"@en, "Samling av ressurser"@no .
+
 lenka:shacl a schema:DefinedTerm ;
     schema:name "SHACL"@en .
 
