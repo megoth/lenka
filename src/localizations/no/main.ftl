@@ -1,6 +1,5 @@
 about-description = På denne siden finner du ressurser knyttet til Linked Data (aka RDF, aka
-    Semantic Web, aka semantiske kunnskapsgrafer), med fokus på de som er relevante for folk som
-    bor i Norge.
+    Semantic Web, aka semantiske kunnskapsgrafer), med fokus på ressurser tilknyttet Norge.
     Om du har tilbakemeldinger eller ønsker å legge til mer informasjon, sjekk
     ut [GitHub-repoet]({$repo_url}).
 
@@ -8,6 +7,7 @@ about-description = På denne siden finner du ressurser knyttet til Linked Data 
     RDF/XML.
     Om du ønsker å motta et spesifikt format så er det viktig å be om riktig media-type. Disse er:
 
+    - HTML: `text/html` (standard)
     - JSON-LD: `application/ld+json`
     - RDF/XML: `application/rdf+xml`
     - Turtle: `text/turtle`
@@ -15,6 +15,9 @@ about-description = På denne siden finner du ressurser knyttet til Linked Data 
     Eksempelvis kan du bruke `curl` for å hente informasjonen:
 
     `curl --header "Accept: text/turtle" https://lenka.vercel.app`
+
+    Nettsiden er utviklet og drives av [Arne Hassel](https://icanhasweb.net/). Domenet ble donert
+    av [Kjetil Kjernsmo](https://kjetil.kjernsmo.net/).
 about-title = Om lenka.no
 application = Applikasjon
 applications = Applikasjoner og bibliotek
@@ -27,14 +30,14 @@ data-catalogs = Data katalog
 courses = Kurs
 english = English
 go-to = Gå til { $thing }
-introduction = Lenka.no samler interessante ressurser for lenka data (aka Linked Data, aka RDF,
+introduction = Lenka.no samler interessante ressurser rundt lenka data (aka Linked Data, aka RDF,
     aka Semantisk Web, aka semantiske kunnskapsgrafer), med fokus på ressurser tilknyttet Norge
 reading-material = Lesestoff
 reading-materials = Lesestoff
-serializations-description = Som nevnt tidligere så støtter nettsiden tre andre format utover slik
-    den er presentert her: JSON-LD, Turtle, og RDF/XML. For de nysgjerrige er teksten til disse
-    også presentert under.
+serializations-description = Som nevnt tidligere så støtter nettsiden tre format utover denne
+    nettsiden: JSON-LD, Turtle, og RDF/XML. For de nysgjerrige er teksten til disse også presentert
+    under.
 serializations-title = Serialiseringer
-slogan = Ressurser for Lenka Data-entusiaster i Norge
-title = Lenka.no - Ressurser for Lenka Data-entusiaster i Norge
+slogan = Ressurser for lenka data-entusiaster i Norge
+title = Lenka.no - Ressurser for lenka data-entusiaster i Norge
 title-small = Lenka.no
