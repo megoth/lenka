@@ -33,7 +33,7 @@ lenka:rdf-js-org a schema:CreativeWork ;
     schema:name
         "RDF standarder og biblioteker i JavaScript"@no,
         "RDF JavaScript standards and libraries"@en ;
-    schema:url <https://www.w3.org/TR/?tags[0]=data> ;
+    schema:url <https://rdf.js.org/> ;
     schema:description
         "En liste over alle standarder og bibliotek for arbeid med semantiske kunnskapsgrafer i JavaScript"@no,
         "A list of all standards and drafts related to semantic knowledge graphs in JavaScript"@en ;
