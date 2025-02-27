@@ -34,6 +34,12 @@ lenka:oslo a schema:DefinedTerm ;
 lenka:python a schema:DefinedTerm ;
     schema:name "Python"@en .
 
+lenka:shacl a schema:DefinedTerm ;
+    schema:name "SHACL"@en .
+
+lenka:shex a schema:DefinedTerm ;
+    schema:name "ShEx"@en .
+
 lenka:sparql a schema:DefinedTerm ;
     schema:name "SPARQL"@en .
 

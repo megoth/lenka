@@ -11,6 +11,24 @@ lenka:w3c-specifications a schema:CreativeWork ;
         "A list of all W3C standards and drafts related to semantic knowledge graphs"@en ;
     schema:keywords lenka:specification .
 
+lenka:shacl-spec a schema:CreativeWork ;
+    schema:name "Shapes Constraint Language (SHACL)"@en ;
+    schema:url <https://www.w3.org/TR/shacl/> ;
+    schema:description
+        """
+A language for validating RDF graphs against a set of conditions. These conditions are provided as shapes and other
+constructs expressed in the form of an RDF graph."""@en ;
+    schema:keywords lenka:specification, lenka:shacl .
+
+lenka:shex-spec a schema:CreativeWork ;
+    schema:name "Shape Expressions (ShEx)"@en ;
+    schema:url <https://shex.io/> ;
+    schema:description
+        """
+Shape Expressions (ShEx) is a language for describing RDF graph structures. A ShEx schema prescribes conditions that
+RDF data graphs must meet in order to be considered "conformant"."""@en ;
+    schema:keywords lenka:specification, lenka:shex .
+
 lenka:rdf-js-org a schema:CreativeWork ;
     schema:name
         "RDF standarder og biblioteker i JavaScript"@no,
@@ -20,18 +38,6 @@ lenka:rdf-js-org a schema:CreativeWork ;
         "En liste over alle standarder og bibliotek for arbeid med semantiske kunnskapsgrafer i JavaScript"@no,
         "A list of all standards and drafts related to semantic knowledge graphs in JavaScript"@en ;
     schema:keywords lenka:specification, lenka:javascript .
-
-lenka:rdfjs-dev a schema:CreativeWork ;
-    schema:name "RDF + JS = ❤️"@en ;
-    schema:url <https://www.w3.org/TR/?tags[0]=data> ;
-    schema:description
-        """
-En liste med guider og hjelpemateriell for å finne hvilket bibliotek man ønsker å ta i bruk i sitt JavaScript eller
-TypeScript prosjekt"""@no,
-        """
-A list og guides and material to help you figure out which library you want to make use of in your JavaScript or
-TypeScript project."""@en ;
-    schema:keywords lenka:javascript, lenka:typescript .
 
 lenka:lov a schema:CreativeWork ;
     schema:name "Linked Open Vocabularies (LOV)"@en ;
@@ -51,3 +57,15 @@ lenka:schema-org a schema:CreativeWork ;
 Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for
 structured data on the Internet."""@en ;
     schema:keywords lenka:vocabulary .
+
+lenka:rdfjs-dev a schema:CreativeWork ;
+    schema:name "RDF + JS = ❤️"@en ;
+    schema:url <https://www.w3.org/TR/?tags[0]=data> ;
+    schema:description
+        """
+En liste med guider og hjelpemateriell for å finne hvilket bibliotek man ønsker å ta i bruk i sitt JavaScript eller
+TypeScript prosjekt"""@no,
+        """
+A list og guides and material to help you figure out which library you want to make use of in your JavaScript or
+TypeScript project."""@en ;
+    schema:keywords lenka:javascript, lenka:typescript .
