@@ -27,7 +27,8 @@ data-catalogs = Data katalog
 courses = Kurs
 english = English
 go-to = Gå til { $thing }
-introduction = Lenka.no samler interessante ressurser for lenka data i Norge.
+introduction = Lenka.no samler interessante ressurser for lenka data (aka Linked Data, aka RDF,
+    aka Semantisk Web, aka semantiske kunnskapsgrafer), med fokus på ressurser tilknyttet Norge
 reading-material = Lesestoff
 reading-materials = Lesestoff
 serializations-description = Som nevnt tidligere så støtter nettsiden tre andre format utover slik

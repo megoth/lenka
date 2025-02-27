@@ -26,7 +26,8 @@ courses = Courses
 data-catalog = Data Catalog
 data-catalogs = Data Catalogs
 go-to = Go to { $thing }
-introduction = Lenka.no indexes interesting resources for linked data in Norway.
+introduction = Lenka.no indexes interesting resources for Linked Data (aka RDF, aka Semantic Web,
+    aka Semantic Knowledge Graphs), with focus on resources related to Norway
 norwegian = Norsk
 reading-material = Reading material
 reading-materials = Reading materials
