@@ -4,9 +4,6 @@
         <h3 class="subtitle" property="schema:name" lang="{{item.get('name').language}}">
             {{item.get("name")}}
         </h3>
-        <div class="content" property="schema:description" lang="{{item.get('description').language}}">
-            {{markdown(item.get("description"))|safe}}
-        </div>
         <ul class="tags is-small">
             {% for tag in item.get("tags").split(";") %}
             <li property="schema:keywords" resource="{{tag}}" class="tag" typeof="{{tags[tag].get('type')}}">
@@ -16,6 +13,9 @@
             </li>
             {% endfor %}
         </ul>
+        <div class="content" property="schema:description" lang="{{item.get('description').language}}">
+            {{markdown(item.get("description"))|safe}}
+        </div>
     </div>
     <div class="card-footer">
         <a href="{{item.get('url')}}" class="card-footer-item" property="schema:url"
@@ -65,7 +65,7 @@
         </div>
         <article>
             <h2 class="title is-3">{{l10n.format_value("communities")}}</h2>
-            <ul>
+            <ul class="cards">
                 {% for community in communities %}
                 {{render_list_item(community, "community")}}
                 {% endfor %}
@@ -73,9 +73,25 @@
         </article>
         <article>
             <h2 class="title is-3">{{l10n.format_value("courses")}}</h2>
-            <ul>
+            <ul class="cards">
                 {% for course in courses %}
                 {{render_list_item(course, "course")}}
+                {% endfor %}
+            </ul>
+        </article>
+        <article>
+            <h2 class="title is-3">{{l10n.format_value("reading-materials")}}</h2>
+            <ul class="cards">
+                {% for reading in readings %}
+                {{render_list_item(reading, "reading-material")}}
+                {% endfor %}
+            </ul>
+        </article>
+        <article>
+            <h2 class="title is-3">{{l10n.format_value("applications-and-libraries")}}</h2>
+            <ul class="cards">
+                {% for application in applications %}
+                {{render_list_item(application, "application")}}
                 {% endfor %}
             </ul>
         </article>

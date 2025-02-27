@@ -1,0 +1,53 @@
+@prefix lenka: <https://lenka.no#> .
+@prefix schema: <https://schema.org/> .
+
+lenka:w3c-specifications a schema:CreativeWork ;
+    schema:name
+        "W3C RDF standarder og pågående arbeid"@no,
+        "W3C standards and drafts on RDF"@en ;
+    schema:url <https://www.w3.org/TR/?tags[0]=data> ;
+    schema:description
+        "En liste over alle W3C standarder og arbeid pågående for semantiske kunnskapsgrafer"@no,
+        "A list of all W3C standards and drafts related to semantic knowledge graphs"@en ;
+    schema:keywords lenka:specification .
+
+lenka:rdf-js-org a schema:CreativeWork ;
+    schema:name
+        "RDF standarder og biblioteker i JavaScript"@no,
+        "RDF JavaScript standards and libraries"@en ;
+    schema:url <https://www.w3.org/TR/?tags[0]=data> ;
+    schema:description
+        "En liste over alle standarder og bibliotek for arbeid med semantiske kunnskapsgrafer i JavaScript"@no,
+        "A list of all standards and drafts related to semantic knowledge graphs in JavaScript"@en ;
+    schema:keywords lenka:specification, lenka:javascript .
+
+lenka:rdfjs-dev a schema:CreativeWork ;
+    schema:name "RDF + JS = ❤️"@en ;
+    schema:url <https://www.w3.org/TR/?tags[0]=data> ;
+    schema:description
+        """
+En liste med guider og hjelpemateriell for å finne hvilket bibliotek man ønsker å ta i bruk i sitt JavaScript eller
+TypeScript prosjekt"""@no,
+        """
+A list og guides and material to help you figure out which library you want to make use of in your JavaScript or
+TypeScript project."""@en ;
+    schema:keywords lenka:javascript, lenka:typescript .
+
+lenka:lov a schema:CreativeWork ;
+    schema:name "Linked Open Vocabularies (LOV)"@en ;
+    schema:url <https://lov.linkeddata.es/dataset/lov/> ;
+    schema:description
+        """
+LOV provides a choice of several hundreds of such vocabularies, based on quality requirements including URI stability
+and availability on the Web, use of standard formats and publication best practices, quality metadata and documentation,
+identifiable and trustable publication body, proper versioning policy."""@en ;
+    schema:keywords lenka:vocabulary .
+
+lenka:schema-org a schema:CreativeWork ;
+    schema:name "Schema.org️"@en ;
+    schema:url <https://schema.org/> ;
+    schema:description
+        """
+Schema.org is a collaborative, community activity with a mission to create, maintain, and promote schemas for
+structured data on the Internet."""@en ;
+    schema:keywords lenka:vocabulary .

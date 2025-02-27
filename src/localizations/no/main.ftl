@@ -16,6 +16,8 @@ about-description = På denne siden finner du ressurser knyttet til Linked Data 
 
     `curl --header "Accept: text/turtle" https://lenka.vercel.app`
 about-title = Om lenka.no
+applications-and-libraries = Applikasjoner og bibliotek
+application = Applikasjon
 communities = Møteplasser
 community = Møteplass
 copyright = Denne siden er lisensert med [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
@@ -24,6 +26,8 @@ courses = Kurs
 english = English
 go-to = Gå til { $thing }
 introduction = Lenka.no samler interessante ressurser for lenka data i Norge.
+reading-material = Lesestoff
+reading-materials = Lesestoff
 slogan = Ressurser for Lenka Data-entusiaster i Norge
 title = Lenka.no - Ressurser for Lenka Data-entusiaster i Norge
 title-small = Lenka.no

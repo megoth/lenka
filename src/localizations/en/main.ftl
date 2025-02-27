@@ -16,14 +16,18 @@ about-description = On this website you'll find interesting resources for Linked
 
     `curl --header "Accept: text/turtle" https://lenka.vercel.app`
 about-title = About lenka.no
+applications-and-libraries = Applications and libraries
+application = Application
 communities = Communities
 community = Community
 copyright = This page is licensed with [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 course = Course
 courses = Courses
 go-to = Go to { $thing }
-introduction = Lenka.no indexes interesting resources for linked data i Norge.
+introduction = Lenka.no indexes interesting resources for linked data in Norway.
 norwegian = Norsk
+reading-material = Reading material
+reading-materials = Reading materials
 slogan = Resources for Linked Data enthusiasts in Norway
 title = Lenka.no - Resources for Linked Data enthusiasts in Norway
 title-small = Lenka.no

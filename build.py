@@ -10,43 +10,31 @@ env = Environment(
 template = env.get_template("index.html")
 loader = FluentResourceLoader("src/localizations/{locale}")
 
+def query(rdf_class: str):
+    return f"""
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX schema: <https://schema.org/>
+        
+        SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(DISTINCT ?tag; SEPARATOR=";") AS ?tags)
+        WHERE {{
+            ?id rdf:type {rdf_class} .
+            ?id rdf:type ?type .
+            ?id schema:name ?name .  
+            ?id schema:description ?description .  
+            ?id schema:url ?url .  
+            ?id schema:keywords ?tag .
+        }}
+        GROUP BY ?id
+        """
+
 
 def serialize_html(lang: str, graph: Graph):
     l10n = FluentLocalization([lang], ["main.ftl"], loader)
     bindings = {Variable("language"): Literal(lang)}
-    communities = graph.query(
-        """
-        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX schema: <https://schema.org/>
-        
-        SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(?tag; SEPARATOR=";") AS ?tags)
-        WHERE {
-            ?id rdf:type schema:Organization .
-            ?id rdf:type ?type .
-            ?id schema:name ?name .  
-            ?id schema:description ?description .  
-            ?id schema:url ?url .  
-            ?id schema:keywords ?tag .
-        }
-        GROUP BY ?id
-        """, initBindings=bindings)
-    courses = graph.query(
-        """
-        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX schema: <https://schema.org/>
-        
-        SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(?tag; SEPARATOR=";") AS ?tags)
-        WHERE {
-            ?id rdf:type schema:Course .
-            ?id rdf:type ?type .
-            ?id schema:name ?name .  
-            ?id schema:description ?description .  
-            ?id schema:url ?url .  
-            ?id schema:keywords ?tag .
-            FILTER( lang(?name) = 'en' || langMatches(lang(?name), ?language) )
-        }
-        GROUP BY ?id
-        """, initBindings=bindings)
+    communities = graph.query(query("schema:Organization"), initBindings=bindings)
+    courses = graph.query(query("schema:Course"), initBindings=bindings)
+    readings = graph.query(query("schema:CreativeWork"), initBindings=bindings)
+    applications = graph.query(query("schema:SoftwareApplication"), initBindings=bindings)
     tags = {}
     for tag in graph.query("""
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -63,11 +51,13 @@ def serialize_html(lang: str, graph: Graph):
         tags[str(tag.get("id"))] = tag
 
     return template.render(
+        applications=applications,
         communities=communities,
         courses=courses,
         l10n=l10n,
         lang=lang,
         markdown=markdown,
+        readings=readings,
         tags=tags,
     )
 

@@ -29,6 +29,32 @@ footer a {
     text-decoration: underline;
 }
 
+.cards {
+    display: grid;
+    gap: var(--bulma-block-spacing) ;
+    column-gap: 0.75rem;
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.card-content > *:not(:last-child) {
+    margin-bottom: calc(var(--bulma-block-spacing) / 2);
+}
+
 .navbar {
     display: flex;
     margin-bottom: 0.5rem;

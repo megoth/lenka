@@ -1,11 +1,59 @@
 @prefix lenka: <https://lenka.no#> .
 @prefix schema: <https://schema.org/> .
 
+lenka:ai a schema:DefinedTerm ;
+    schema:name "AI"@en .
+
+lenka:c a schema:DefinedTerm ;
+    schema:name "C"@en .
+
+lenka:cpp a schema:DefinedTerm ;
+    schema:name "C++"@en .
+
+lenka:dotnet a schema:DefinedTerm ;
+    schema:name ".NET"@en .
+
+lenka:javascript a schema:DefinedTerm ;
+    schema:name "JavaScript"@en .
+
+lenka:java a schema:DefinedTerm ;
+    schema:name "Java"@en .
+
+lenka:library a schema:DefinedTerm ;
+    schema:name "Library"@en, "Bibliotek"@no .
+
 lenka:meetup a schema:DefinedTerm ;
     schema:name "Meetup"@en .
+
+lenka:neo4j a schema:DefinedTerm ;
+    schema:name "Neo4j"@en .
 
 lenka:oslo a schema:DefinedTerm ;
     schema:name "Oslo"@en, "Oslo"@no .
 
+lenka:python a schema:DefinedTerm ;
+    schema:name "Python"@en .
+
+lenka:sparql a schema:DefinedTerm ;
+    schema:name "SPARQL"@en .
+
+lenka:server a schema:DefinedTerm ;
+    schema:name "Server"@en .
+
+lenka:shacl a schema:DefinedTerm ;
+    schema:name "SHACL"@en .
+
+lenka:shex a schema:DefinedTerm ;
+    schema:name "ShEx"@en .
+
+lenka:specification a schema:DefinedTerm ;
+    schema:name "Specification"@en, "Standard"@no .
+
+lenka:typescript a schema:DefinedTerm ;
+    schema:name "TypeScript"@en .
+
 lenka:uio a schema:DefinedTerm ;
     schema:name "University of Oslo"@en, "Universitetet i Oslo"@no .
+
+lenka:vocabulary a schema:DefinedTerm ;
+    schema:name "Vocabulary"@en, "Vokabular"@no .
