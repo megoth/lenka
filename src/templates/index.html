@@ -32,15 +32,15 @@
                 {{markdown(l10n.format_value("introduction"))|safe}}
                 <ul>
                     {% for index in indexes %}
-                    <li><a href="{{url}}#{{index.plural}}">{{l10n.format_value(index.plural)}}</a></li>
+                    <li><a href="{{url}}#{{index.id}}">{{l10n.format_value(index.id)}}</a></li>
                     {% endfor %}
                 </ul>
                 {{markdown(l10n.format_value("introduction-end", { 'url': url }))|safe}}
             </div>
         </nav>
         {% for index in indexes %}
-        <section id="{{index.plural}}" class="bulma-block">
-            <h2 class="bulma-title bulma-is-3">{{l10n.format_value(index.plural)}}</h2>
+        <section id="{{index.id}}" class="bulma-block">
+            <h2 class="bulma-title bulma-is-3">{{l10n.format_value(index.id)}}</h2>
             <div class="cards">
                 {% for item in index.list %}
                 <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
@@ -48,6 +48,7 @@
                         <h3 class="bulma-title bulma-is-5" property="schema:name" lang="{{item.get('name').language}}">
                             {{item.get("name")}}
                         </h3>
+                        {% if item.get('tags') %}
                         <ul class="bulma-tags bulma-is-small">
                             {% for tag in item.get("tags").split(";") %}
                             <li property="schema:keywords" resource="{{tag}}" class="bulma-tag"
@@ -58,6 +59,7 @@
                             </li>
                             {% endfor %}
                         </ul>
+                        {% endif %}
                         <div class="bulma-content" property="schema:description"
                              lang="{{item.get('description').language}}">
                             {{markdown(item.get("description"))|safe}}
@@ -67,7 +69,7 @@
                         <a href="{{item.get('url')}}" class="bulma-card-footer-item" property="schema:url"
                            resource="{{item.get('url')}}">
                             {{l10n.format_value("go-to", {
-                            'thing': l10n.format_value(index.single).lower()
+                            'thing': l10n.format_value(item.get('type').split('/')[-1].lower()).lower()
                             })}}
                         </a>
                     </div>

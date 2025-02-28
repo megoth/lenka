@@ -17,24 +17,6 @@ lenka:w3c-specifications a schema:CreativeWork ;
         "A list of all W3C standards and drafts related to semantic knowledge graphs"@en ;
     schema:keywords lenka:specification, lenka:resource-collection .
 
-lenka:shacl-spec a schema:CreativeWork ;
-    schema:name "Shapes Constraint Language (SHACL)"@en ;
-    schema:url <https://www.w3.org/TR/shacl/> ;
-    schema:description
-        """
-A language for validating RDF graphs against a set of conditions. These conditions are provided as shapes and other
-constructs expressed in the form of an RDF graph."""@en ;
-    schema:keywords lenka:specification, lenka:shacl .
-
-lenka:shex-spec a schema:CreativeWork ;
-    schema:name "Shape Expressions (ShEx)"@en ;
-    schema:url <https://shex.io/> ;
-    schema:description
-        """
-Shape Expressions (ShEx) is a language for describing RDF graph structures. A ShEx schema prescribes conditions that
-RDF data graphs must meet in order to be considered "conformant"."""@en ;
-    schema:keywords lenka:specification, lenka:shex .
-
 lenka:rdf-js-org a schema:CreativeWork ;
     schema:name
         "RDF standarder og biblioteker i JavaScript"@no,

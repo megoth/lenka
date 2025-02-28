@@ -3,6 +3,8 @@ from jinja2 import Environment, select_autoescape, FileSystemLoader
 from fluent.runtime import FluentLocalization, FluentResourceLoader
 from markdown import markdown
 
+from queries import query_collection, query_content, query_tags
+
 env = Environment(
     loader=FileSystemLoader(searchpath="src/templates"),
     autoescape=select_autoescape()
@@ -11,66 +13,11 @@ template = env.get_template("index.html")
 loader = FluentResourceLoader("src/localizations/{locale}")
 
 
-def query_content(rdf_class: str):
-    return f"""
-        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX schema: <https://schema.org/>
-        
-        SELECT * WHERE {{
-            {{
-                SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(DISTINCT ?tag; SEPARATOR=";") AS ?tags)
-                WHERE {{
-                    ?id rdf:type {rdf_class} .
-                    ?id rdf:type ?type .
-                    ?id schema:name ?name .  
-                    ?id schema:description ?description .  
-                    ?id schema:url ?url .  
-                    ?id schema:keywords ?tag .
-                    FILTER(langMatches(lang(?description), ?language))
-                }}
-                GROUP BY ?id
-            }}
-            UNION
-            {{
-                SELECT ?id ?type ?name ?description ?url (GROUP_CONCAT(DISTINCT ?tag; SEPARATOR=";") AS ?tags)
-                WHERE {{
-                    ?id rdf:type {rdf_class} .
-                    ?id rdf:type ?type .
-                    ?id schema:name ?name .  
-                    ?id schema:description ?description .  
-                    ?id schema:url ?url .  
-                    ?id schema:keywords ?tag .
-                    FILTER(lang(?description) = "en" && not exists {{
-                        ?id schema:description ?description2
-                        FILTER(langMatches(lang(?description2), ?language))
-                    }})
-                }}
-                GROUP BY ?id
-            }}
-        }}
-        ORDER BY ASC(?id)
-        """
-
-
-def query_tags():
-    return """
-        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX schema: <https://schema.org/>
-        
-        SELECT ?id ?name ?type
-        WHERE {
-            ?id rdf:type schema:DefinedTerm .
-            ?id rdf:type ?type .
-            ?id schema:name ?name .  
-            FILTER( lang(?name) = "en" || langMatches(lang(?name), ?language) )
-        }
-        """
-
-
 def serialize_html(lang: str, graph: Graph, *args, **kwargs):
     l10n = FluentLocalization([lang], ["main.ftl"], loader)
 
     bindings = {Variable("language"): Literal(lang)}
+    intro = graph.query(query_collection())
     communities = graph.query(query_content("schema:Organization"), initBindings=bindings)
     courses = graph.query(query_content("schema:Course"), initBindings=bindings)
     data_catalogs = graph.query(query_content("schema:DataCatalog"), initBindings=bindings)
@@ -84,11 +31,12 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
 
     return template.render(
         indexes=[
-            {"list": communities, "single": "community", "plural": "communities"},
-            {"list": courses, "single": "course", "plural": "courses"},
-            {"list": data_catalogs, "single": "data-catalog", "plural": "data-catalogs"},
-            {"list": reading_materials, "single": "reading-material", "plural": "reading-materials"},
-            {"list": applications, "single": "application", "plural": "applications"},
+            {"list": intro, "id": "intro-to-linked-data"},
+            {"list": communities, "id": "communities"},
+            {"list": courses, "id": "courses"},
+            {"list": data_catalogs, "id": "data-catalogs"},
+            {"list": reading_materials, "id": "reading-materials"},
+            {"list": applications, "id": "applications"},
         ],
         l10n=l10n,
         lang=lang,

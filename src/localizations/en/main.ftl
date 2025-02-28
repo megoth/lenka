@@ -4,24 +4,26 @@ about-description = If you have feedback or want to add more information to the 
     The website is developed and maintained by [Arne Hassel](https://icanhasweb.net/). The domain
     was donated by [Kjetil Kjernsmo](https://kjetil.kjernsmo.net/).
 about-title = About lenka.no
-application = Application
 applications = Applications and libraries
+article = Text
 communities = Communities
-community = Community
 copyright = This page is licensed with [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 course = Course
 courses = Courses
-data-catalog = Data Catalog
+creativework = Reading material
 data-catalogs = Data Catalogs
+datacatalog = Data Catalog
 go-to = Go to { $thing }
+intro-to-linked-data = Introduction to Linked Data
 introduction = Lenka.no indexes interesting resources related to "lenka data" (aka Linked
     Data, aka RDF, aka Semantic Web, aka Semantic Knowledge Graphs), with focus on resources
     related to Norway. The resources are grouped in the following categories:
 introduction-end = There's also [more about the page]({$url}#about) and a part about how you
     can [retrieve the data]({$url}#serializations).
 norwegian = Norsk
-reading-material = Reading material
+organization = Community
 reading-materials = Reading material
+resource = Resource
 serializations-description = The data on this website is available as HTML+RDFa (the website
     you're reading now), Turtle, JSON-LD, and RDF/XML.
     Remember to use the correct media type when requesting the data:
@@ -32,5 +34,7 @@ serializations-description = The data on this website is available as HTML+RDFa 
     - Turtle: `text/turtle`
 serializations-title = Serializations
 slogan = Resources for Linked Data enthusiasts in Norway
+softwareapplication = Application
 title = Lenka.no - Resources for Linked Data enthusiasts in Norway
 title-small = Lenka.no
+videoobject = Video
