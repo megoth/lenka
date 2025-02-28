@@ -85,3 +85,7 @@ footer a {
     flex-grow: 0;
     white-space: nowrap;
 }
+
+.bulma-title:not(:last-child) {
+    margin-bottom: calc(var(--bulma-block-spacing) / 2);
+}

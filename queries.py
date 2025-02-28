@@ -1,18 +1,17 @@
-def query_collection():
-    return """
+def query_collection(collection_id: str):
+    return f"""
         PREFIX lenka: <https://lenka.no#>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX schema: <https://schema.org/>
         
         SELECT DISTINCT ?id ?type ?name ?description ?url
-        WHERE {
-            ?collectionId rdf:type schema:Collection .
-            ?collectionId schema:hasPart ?id .
+        WHERE {{
+            lenka:{collection_id} schema:hasPart ?id .
             ?id rdf:type ?type .
             ?id schema:name ?name .  
             ?id schema:description ?description .  
             ?id schema:url ?url . 
-        }
+        }}
         GROUP BY ?id
         """
 

@@ -28,19 +28,20 @@
     </nav>
     <main>
         <nav class="bulma-block bulma-content">
-            <div class="bulma-notification bulma-is-small">
-                {{markdown(l10n.format_value("introduction"))|safe}}
-                <ul>
-                    {% for index in indexes %}
-                    <li><a href="{{url}}#{{index.id}}">{{l10n.format_value(index.id)}}</a></li>
-                    {% endfor %}
-                </ul>
-                {{markdown(l10n.format_value("introduction-end", { 'url': url }))|safe}}
-            </div>
+            {{markdown(l10n.format_value("introduction"))|safe}}
+            <ul>
+                {% for index in indexes %}
+                <li><a href="{{url}}#{{index.id}}">{{l10n.format_value(index.id)}}</a></li>
+                {% endfor %}
+            </ul>
+            {{markdown(l10n.format_value("introduction-end", { 'url': url }))|safe}}
         </nav>
         {% for index in indexes %}
         <section id="{{index.id}}" class="bulma-block">
             <h2 class="bulma-title bulma-is-3">{{l10n.format_value(index.id)}}</h2>
+            <div class="bulma-content">
+                {{markdown(l10n.format_value(index.id + '-description'))|safe}}
+            </div>
             <div class="cards">
                 {% for item in index.list %}
                 <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">

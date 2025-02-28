@@ -1,0 +1,44 @@
+@prefix lenka: <https://lenka.no#> .
+@prefix schema: <https://schema.org/> .
+
+lenka:intro-to-linked-data a schema:Collection ;
+    schema:hasPart
+        lenka:ted-timbl-linked-data,
+        lenka:ontola-rdf-brief-introduction,
+        lenka:rdfjs-guide-to-rdf,
+        lenka:stardog-academy-getting-started,
+        lenka:rdf-primer .
+
+lenka:ontola-rdf-brief-introduction a schema:Article ;
+    schema:name "A brief introduction to linked data"@en ;
+    schema:url <https://ontola.io/blog/what-is-linked-data> ;
+    schema:description
+        """A very good read that introduces the most important concepts in Linked Data, with
+       illustrations and easy to understand examples."""@en .
+
+lenka:rdf-primer a schema:Article ;
+    schema:name "RDF Primer"@en ;
+    schema:url <https://www.w3.org/TR/rdf-primer/> ;
+    schema:description
+        """If you want a more comprehensive introduction to Linked Data, the classic "RDF Primer" is your best bet.
+        It's over 20 years old, but is still relevant for foundational understanding of Linked Data."""@en .
+
+lenka:rdfjs-guide-to-rdf a schema:Article ;
+    schema:name "Guide to RDF"@en ;
+    schema:url <https://rdfjs.dev/rdf> ;
+    schema:description
+        """This is an article I wrote for rdfjs.dev, a website I built for developers who want to
+       combine Linked Data and front-end technologies. Even if you aren't into JavaScript or the like, I think you'll get
+       something out of this text."""@en .
+
+lenka:stardog-academy-getting-started a schema:VideoObject ;
+    schema:name "Getting Started with RDF & SPARQL"@en ;
+    schema:url <https://www.youtube.com/watch?v=bDxclRhDb-o> ;
+    schema:description "If you prefer video this ~30 min presentation by Stardog Academy is worth a watch."@en .
+
+lenka:ted-timbl-linked-data a schema:VideoObject ;
+    schema:name "Tim Berners-Lee: The next Web of open, linked data"@en ;
+    schema:url <https://www.youtube.com/watch?v=OM6XIICm_qo> ;
+    schema:description
+        """A great presentation by Sir Tim Berners-Lee's on TED 2009. The video might be old, but Tim
+        has been and is an important figure in the development of Linked Data, and his vision holds to this day."""@en .

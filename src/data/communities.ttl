@@ -14,9 +14,7 @@ Topics of interest:
 * Neo4j and other LPG implementations
 * NLP, LLM, ML & GenAI related to KGs
 
-If you have something you want to share with the community, please reach out and we can schedule an event! 🌟
-
-Associated Slack space for discussion: [knowledgegraphoslo.slack.com](http://knowledgegraphoslo.slack.com/)."""@en ;
+If you have something you want to share with the community, please reach out and we can schedule an event! 🌟"""@en ;
     schema:keywords lenka:meetup, lenka:oslo .
 
 lenka:graph a schema:Organization ;
@@ -26,10 +24,7 @@ lenka:graph a schema:Organization ;
 This meetup will aim to provide a wonderful community around graph databases in general, and Neo4j specifically. We
 want to provide a forum for the exchange of ideas, networking, sharing of best practices, and technical+business tips
 that will help the adoption of graph databases in all kinds of organisations - small and large, corporate or government,
-for profit and academic.
-
-Interested to speak at this or future meetups? Fill this form:
-[https://dev.neo4j.com/submit-your-talk](https://dev.neo4j.com/submit-your-talk)"""@en ;
+for profit and academic."""@en ;
     schema:keywords lenka:neo4j, lenka:meetup, lenka:oslo .
 
 lenka:oslo-data-science a schema:Organization ;

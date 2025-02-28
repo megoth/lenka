@@ -17,7 +17,7 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
     l10n = FluentLocalization([lang], ["main.ftl"], loader)
 
     bindings = {Variable("language"): Literal(lang)}
-    intro = graph.query(query_collection())
+    intro = graph.query(query_collection('intro-to-linked-data'))
     communities = graph.query(query_content("schema:Organization"), initBindings=bindings)
     courses = graph.query(query_content("schema:Course"), initBindings=bindings)
     data_catalogs = graph.query(query_content("schema:DataCatalog"), initBindings=bindings)
