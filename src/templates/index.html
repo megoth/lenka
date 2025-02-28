@@ -12,23 +12,18 @@
 <div class="bulma-container">
     <nav class="bulma-navbar" role="navigation" aria-label="main navigation">
         <h1 class="bulma-navbar-brand">
-            <a class="bulma-navbar-item" href="/">
+            <a class="bulma-navbar-item" href="{{url}}">
                 <img src="/rdf.svg" width="59" height="64" alt="The RDF logo" style="max-height: 100%;"/>
                 <span class="bulma-title">{{l10n.format_value("title-small")}}</span>
             </a>
         </h1>
         <div class="bulma-navbar-end">
-            {% if lang == 'en' %}
-            <a href="/" class="bulma-navbar-item">
-                {{l10n.format_value("norwegian")}}
-                <img src="/norway.png" alt="" width="24" height="24" style="max-height: 100%;"/>
+            {% for language in languages %}
+            <a href="{{language.url}}" class="bulma-navbar-item">
+                {{l10n.format_value(language.label)}}
+                <img src="{{language.icon}}" alt="" width="24" height="24" style="max-height: 100%;"/>
             </a>
-            {% elif lang == 'no' %}
-            <a href="/en" class="bulma-navbar-item">
-                {{l10n.format_value("english")}}
-                <img src="/united-kingdom.png" alt="" width="24" height="24" style="max-height: 100%;"/>
-            </a>
-            {% endif %}
+            {% endfor %}
         </div>
     </nav>
     <main>

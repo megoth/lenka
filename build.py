@@ -92,6 +92,10 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
         ],
         l10n=l10n,
         lang=lang,
+        languages=[language for language in [
+            {"code": "en", "url": "/en", "label": "english", "icon": "/united-kingdom.png"},
+            {"code": "no", "url": "/", "label": "norwegian", "icon": "/norway.png"},
+        ] if language.get("code") is not lang],
         markdown=markdown,
         serializations=[serialization for serialization in [
             {"label": "JSON-LD", "text": jsonld, "code": "json"} if jsonld else None,
