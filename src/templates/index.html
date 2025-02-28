@@ -34,9 +34,8 @@
                     {% for index in indexes %}
                     <li><a href="{{url}}#{{index.plural}}">{{l10n.format_value(index.plural)}}</a></li>
                     {% endfor %}
-                    <li><a href="{{url}}#about">{{l10n.format_value("about-title")}}</a></li>
-                    <li><a href="{{url}}#serializations">{{l10n.format_value("serializations-title")}}</a></li>
                 </ul>
+                {{markdown(l10n.format_value("introduction-end", { 'url': url }))|safe}}
             </div>
         </nav>
         {% for index in indexes %}
@@ -94,6 +93,7 @@
             {% for serialization in serializations %}
             <article class="bulma-block">
                 <h3 class="bulma-title bulma-is-5">{{serialization.label}}</h3>
+                <pre>curl --header "Accept: {{serialization.format}}" https://lenka.vercel.app</pre>
                 <pre class="code"><code class="language-{{serialization.code}}">{{serialization.text}}</code></pre>
             </article>
             {% endfor %}

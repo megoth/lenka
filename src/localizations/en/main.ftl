@@ -1,20 +1,5 @@
-about-description = On this website you'll find interesting resources for Linked Data (aka RDF,
-    aka Semantic Web, aka Semantic Knowledge Graphs), with focus on those related to Norway.
-    If you have feedback or want to add more information to the site, please check
+about-description = If you have feedback or want to add more information to the site, please check
     out [the GitHub-repo]({$repo_url}).
-
-    This data is available as HTML+RDFa (the website you're reading now), Turtle, JSON-LD, and
-    RDF/XML.
-    Remember to use the correct media type when requesting the data:
-
-    - HTML: `text/html` (default)
-    - JSON-LD: `application/ld+json`
-    - RDF/XML: `application/rdf+xml`
-    - Turtle: `text/turtle`
-
-    One way to request the data is to use `curl`:
-
-    `curl --header "Accept: text/turtle" https://lenka.vercel.app`
 
     The website is developed and maintained by [Arne Hassel](https://icanhasweb.net/). The domain
     was donated by [Kjetil Kjernsmo](https://kjetil.kjernsmo.net/).
@@ -31,12 +16,20 @@ data-catalogs = Data Catalogs
 go-to = Go to { $thing }
 introduction = Lenka.no indexes interesting resources related to "lenka data" (aka Linked
     Data, aka RDF, aka Semantic Web, aka Semantic Knowledge Graphs), with focus on resources
-    related to Norway
+    related to Norway. The resources are grouped in the following categories:
+introduction-end = There's also [more about the page]({$url}#about) and a part about how you
+    can [retrieve the data]({$url}#serializations).
 norwegian = Norsk
 reading-material = Reading material
 reading-materials = Reading material
-serializations-description = As mentioned the supported formats of the data on this website are
-    HTML+RDFa, JSON-LD, Turtle, and RDF/XML. The latter three are presented below.
+serializations-description = The data on this website is available as HTML+RDFa (the website
+    you're reading now), Turtle, JSON-LD, and RDF/XML.
+    Remember to use the correct media type when requesting the data:
+
+    - HTML+RDFa: `text/html` (default)
+    - JSON-LD: `application/ld+json`
+    - RDF/XML: `application/rdf+xml`
+    - Turtle: `text/turtle`
 serializations-title = Serializations
 slogan = Resources for Linked Data enthusiasts in Norway
 title = Lenka.no - Resources for Linked Data enthusiasts in Norway

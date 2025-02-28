@@ -9,6 +9,14 @@ main > article {
     margin-bottom: 2rem;
 }
 
+code {
+    border-radius: 0;
+}
+
+pre:not(.code) {
+    padding: 0.5rem 0.75rem;
+}
+
 footer {
     display: flex;
     gap: 1rem;

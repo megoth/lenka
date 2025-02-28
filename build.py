@@ -98,9 +98,9 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
         ] if language.get("code") is not lang],
         markdown=markdown,
         serializations=[serialization for serialization in [
-            {"label": "JSON-LD", "text": jsonld, "code": "json"} if jsonld else None,
-            {"label": "Turtle", "text": turtle, "code": "turtle"} if turtle else None,
-            {"label": "RDF/XML", "text": rdfxml, "code": "xml"} if rdfxml else None
+            {"label": "JSON-LD", "text": jsonld, "code": "json", "format": "application/ld+json"} if jsonld else None,
+            {"label": "Turtle", "text": turtle, "code": "turtle", "format": "text/turtle"} if turtle else None,
+            {"label": "RDF/XML", "text": rdfxml, "code": "xml", "format": "application/rdf+xml"} if rdfxml else None
         ] if serialization is not None],
         tags=tags,
         url="/" if lang == "no" else f"/{lang}"
