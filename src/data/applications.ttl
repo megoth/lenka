@@ -44,6 +44,16 @@ to all leading RDF database solutions. It allows you to connect with SPARQL endp
 leverage the power of linked data and Semantic Web."""@en ;
     schema:keywords lenka:library, lenka:java, lenka:sparql .
 
+lenka:ldo a schema:SoftwareApplication ;
+    schema:name "Linked Data Objects (LDO)"@en ;
+    schema:url <https://ldo.js.org/> ;
+    schema:description """
+> Solid and RDF without the Complexity
+
+Although it's still experimental, LDO is one of the best libraries in terms of developer experience when
+working with front-end projects and Linked Data."""@en ;
+    schema:keywords lenka:library, lenka:javascript, lenka:typescript, lenka:shex .
+
 lenka:neosemantics a schema:SoftwareApplication ;
     schema:name "neosemantics (n10s): Neo4j RDF & Semantics toolkit"@en ;
     schema:url <https://neo4j.com/labs/neosemantics/> ;
@@ -54,13 +64,7 @@ others) in Neo4j.
 You can use n10s to build integrations with RDF-generating / RDF-consuming components. You can also use it to validate
 your graph against constraints expressed in SHACL or to run basic inferencing.
 """@en ;
-    schema:keywords lenka:server, lenka:shacl, lenka:sparql .
-
-lenka:pyshacl a schema:SoftwareApplication ;
-    schema:name "pySHACL"@en ;
-    schema:url <https://github.com/RDFLib/pySHACL> ;
-    schema:description "A Python validator for SHACL."@en ;
-    schema:keywords lenka:library, lenka:python, lenka:shacl .
+    schema:keywords lenka:server, lenka:neo4j, lenka:shacl, lenka:sparql .
 
 lenka:rdflib-javascript a schema:SoftwareApplication ;
     schema:name "rdflib.js"@en ;
