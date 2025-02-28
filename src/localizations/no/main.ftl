@@ -12,7 +12,7 @@ about-description = På denne siden finner du ressurser knyttet til Linked Data 
     - RDF/XML: `application/rdf+xml`
     - Turtle: `text/turtle`
 
-    Eksempelvis kan du bruke `curl` for å hente informasjonen:
+    En måte å hente informasjonen på er å bruke `curl`:
 
     `curl --header "Accept: text/turtle" https://lenka.vercel.app`
 

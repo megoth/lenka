@@ -12,7 +12,7 @@ about-description = On this website you'll find interesting resources for Linked
     - RDF/XML: `application/rdf+xml`
     - Turtle: `text/turtle`
 
-    You can use `curl` to request the data:
+    One way to request the data is to use `curl`:
 
     `curl --header "Accept: text/turtle" https://lenka.vercel.app`
 
