@@ -96,7 +96,7 @@
             {% for serialization in serializations %}
             <article class="bulma-block">
                 <h3 class="bulma-title bulma-is-5">{{serialization.label}}</h3>
-                <pre>curl --header "Accept: {{serialization.format}}" https://lenka.vercel.app</pre>
+                <pre>curl --header "Accept: {{serialization.format}}" https://www.lenka.no</pre>
                 <pre class="code"><code class="language-{{serialization.code}}">{{serialization.text}}</code></pre>
             </article>
             {% endfor %}
