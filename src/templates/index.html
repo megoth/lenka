@@ -44,7 +44,7 @@
             </div>
             <div class="cards">
                 {% for item in index.list %}
-                <article about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
+                <article id="{{item.id.replace('https://lenka.no#', '')}}" about="{{item.get('id')}}" class="bulma-card" typeof="{{item.get('type')}}">
                     <div class="bulma-card-content">
                         <h3 class="bulma-title bulma-is-5" property="schema:name" lang="{{item.get('name').language}}">
                             {{item.get("name")}}
