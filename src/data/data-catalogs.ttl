@@ -4,20 +4,31 @@
 lenka:data-norge-no a schema:DataCatalog ;
     schema:name "data.norge.no"@en ;
     schema:url <https://data.norge.no/> ;
-    schema:description """
-Data.norge.no gir en omfattende oversikt over datasett, begreper, API-er, informasjonsmodeller, tjenester og hendelser
-i offentlig sektor, inkludert data med juridiske begrensninger som taushetsplikt eller personopplysninger."""@no,
-        """
-Data.norge.no provides a comprehensive overview of datasets, concepts, APIs, information models, services, and events
-in the public sector, including data with legal restrictions such as confidentiality or personal information."""@en ;
+    schema:description
+        """Data.norge.no gir en omfattende oversikt over datasett, begreper, API-er, informasjonsmodeller, tjenester og hendelser i offentlig sektor, inkludert data med juridiske begrensninger som taushetsplikt eller personopplysninger."""@no,
+        """Data.norge.no provides a comprehensive overview of datasets, concepts, APIs, information models, services, and events in the public sector, including data with legal restrictions such as confidentiality or personal information."""@en ;
     schema:keywords lenka:data-catalog .
 
 lenka:data-stortinget-no a schema:DataCatalog ;
     schema:name "Stortinget | Åpne data"@no ;
     schema:url <https://data.stortinget.no/> ;
-    schema:description """
-Stortingets datatjeneste tilbyr uttrekk fra databaser som benyttes i Stortingets parlamentariske saksbehandling."""@no,
-        """
-The data service of the Norwegian parliament, Stortinget, which offer datasets that are used in the work of the
-parliamentary organization."""@en ;
+    schema:description
+        """Stortingets datatjeneste tilbyr uttrekk fra databaser som benyttes i Stortingets parlamentariske saksbehandling."""@no,
+        """The data service of the Norwegian parliament, Stortinget, which offer datasets that are used in the work of the parliamentary organization."""@en ;
+    schema:keywords lenka:data-catalog .
+
+lenka:dataut-vegvesen-no a schema:DataCatalog ;
+    schema:name "Data fra Statens vegvesen"@no ;
+    schema:url <https://dataut.vegvesen.no/> ;
+    schema:description
+        """Dataportalen har informasjon om hvilke datasett Statens Vegvesen deler, og hvordan du kan få tilgang til dem."""@no,
+        """The data portal has information about the datasets the Norwegian Public Roads Administration shares, and how you can get access to them."""@en ;
+    schema:keywords lenka:data-catalog .
+
+lenka:transportportal-no a schema:DataCatalog ;
+    schema:name "Transportportal.no - Nasjonalt tilgangspunkt for veg- og transportdata"@no ;
+    schema:url <https://transportportal.no/> ;
+    schema:description
+        """Transportportal.no er det nasjonale tilgangspunktet for data om veg- og transport i Norge. Portalen er opprettet for å ha tilgang til alle veg-, transport- og mobilitetsdata fra samme sted."""@no,
+        """This portal’s data catalogue gives you descriptions and links to data sets and services with information on road status, incidents, public transport, schedules and much more."""@en ;
     schema:keywords lenka:data-catalog .
