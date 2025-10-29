@@ -49,7 +49,8 @@ def read_english(request: Request):
     return read_response(request, html_en)
 
 
-app.mount("/", StaticFiles(directory="./public"), name="public")
+# UNCOMMENT THIS WHEN YOU NEED TO INCLUDE STATIC FILES LOCALLY
+# app.mount("/", StaticFiles(directory="./public"), name="public")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
