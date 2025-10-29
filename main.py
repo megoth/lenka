@@ -48,16 +48,37 @@ def read_norwegian(request: Request):
 def read_english(request: Request):
     return read_response(request, html_en)
 
-# @app.get("/bulma-prefixed.css", include_in_schema=False)
+@app.get("/bulma-prefixed.css", include_in_schema=False)
+async def bulmaStyle():
+    return RedirectResponse("/bulma-prefixed.css", status_code=307)
+
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     return RedirectResponse("/favicon.ico", status_code=307)
-# @app.get("/norway.png", include_in_schema=False)
-# @app.get("/prism.css", include_in_schema=False)
-# @app.get("/prism.js", include_in_schema=False)
-# @app.get("/rdf.svg", include_in_schema=False)
-# @app.get("/styling.css", include_in_schema=False)
-# @app.get("/united-kingdom.png", include_in_schema=False)
+
+@app.get("/norway.png", include_in_schema=False)
+async def norwayIcon():
+    return RedirectResponse("/norway.png", status_code=307)
+
+@app.get("/prism.css", include_in_schema=False)
+async def prismStyle():
+    return RedirectResponse("/prism.css", status_code=307)
+
+@app.get("/prism.js", include_in_schema=False)
+async def prismScript():
+    return RedirectResponse("/prism.js", status_code=307)
+
+@app.get("/rdf.svg", include_in_schema=False)
+async def rdfIcon():
+    return RedirectResponse("/rdf.svg", status_code=307)
+
+@app.get("/styling.css", include_in_schema=False)
+async def styling():
+    return RedirectResponse("/styling.css", status_code=307)
+
+@app.get("/united-kingdom.png", include_in_schema=False)
+async def ukIcon():
+    return RedirectResponse("/united-kingdom.png", status_code=307)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
