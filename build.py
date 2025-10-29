@@ -41,8 +41,8 @@ def serialize_html(lang: str, graph: Graph, *args, **kwargs):
         l10n=l10n,
         lang=lang,
         languages=[language for language in [
-            {"code": "en", "url": "/en", "label": "english", "icon": "https://raw.githubusercontent.com/megoth/lenka/refs/heads/main/public/united-kingdom.png"},
-            {"code": "no", "url": "/", "label": "norwegian", "icon": "https://raw.githubusercontent.com/megoth/lenka/refs/heads/main/public/norway.png"},
+            {"code": "en", "url": "/en", "label": "english", "icon": "/united-kingdom.png"},
+            {"code": "no", "url": "/", "label": "norwegian", "icon": "/norway.png"},
         ] if language.get("code") is not lang],
         markdown=markdown,
         serializations=[serialization for serialization in [
