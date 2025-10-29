@@ -48,9 +48,14 @@ def read_norwegian(request: Request):
 def read_english(request: Request):
     return read_response(request, html_en)
 
-
-# UNCOMMENT THIS WHEN YOU NEED TO INCLUDE STATIC FILES LOCALLY
-# app.mount("/", StaticFiles(directory="./public"), name="public")
+@app.get("/bulma-prefixed.css", include_in_schema=False)
+@app.get("/favicon.ico", include_in_schema=False)
+@app.get("/norway.png", include_in_schema=False)
+@app.get("/prism.css", include_in_schema=False)
+@app.get("/prism.js", include_in_schema=False)
+@app.get("/rdf.svg", include_in_schema=False)
+@app.get("/styling.css", include_in_schema=False)
+@app.get("/united-kingdom.png", include_in_schema=False)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
