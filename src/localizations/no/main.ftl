@@ -10,6 +10,9 @@ applications-description = I denne listen finner du programvare som er relatert 
     anbefale [Awesome Semantic Web](https://github.com/semantalytics/awesome-semantic-web) som
     en bedre ressurs å sjekke ut for flere eksempler.
 article = Tekst
+categories-start = Ressursene er gruppert i følgende kategorier:
+categories-end = Det er også [mer om siden]({$url}#about) og en del om hvordan du
+    kan [hente ut data]({$url}#serializations).
 communities = Møteplasser
 communities-description = I denne listen finner du grupper som du kan møte andre interesserte i
     Linked Data. (Jeg har et stort bias for Oslo siden jeg bor her, så tar gjerne imot hjelp med å
@@ -32,9 +35,6 @@ intro-to-linked-data-description = Vi trenger alle å starte et sted, eller kans
     oversikt over hva Linked Data er.
 introduction = Lenka.no samler interessante ressurser rundt lenka data (aka Linked Data, aka RDF,
     aka Semantisk Web, aka semantiske kunnskapsgrafer), med fokus på ressurser tilknyttet Norge.
-    Ressursene er gruppert i følgende kategorier:
-introduction-end = Det er også [mer om siden]({$url}#about) og en del om hvordan du
-    kan [hente ut data]({$url}#serializations).
 organization = Møteplass
 reading-materials = Lesestoff
 reading-materials-description = I denne listen finner du diverse ressurser med guider, vokabular,

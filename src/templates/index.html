@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="/styling.css">
     <link rel="stylesheet" href="/prism.css"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta property="og:image" content="/favicon.ico">
+    <meta property="og:image:type" content="image/x-icon">
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="256">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lenka.no{{url}}"/>
+    <meta property="og:title" content="{{l10n.format_value('title-small')}}" />
+    <meta property="og:description" content="{{l10n.format_value('introduction')}}" />
 </head>
 <body class="line-numbers">
 <div class="bulma-container">
@@ -29,12 +37,13 @@
     <main>
         <nav class="bulma-block bulma-content">
             {{markdown(l10n.format_value("introduction"))|safe}}
+            {{markdown(l10n.format_value("categories-start"))|safe}}
             <ul>
                 {% for index in indexes %}
                 <li><a href="{{url}}#{{index.id}}">{{l10n.format_value(index.id)}}</a></li>
                 {% endfor %}
             </ul>
-            {{markdown(l10n.format_value("introduction-end", { 'url': url }))|safe}}
+            {{markdown(l10n.format_value("categories-end", { 'url': url }))|safe}}
         </nav>
         {% for index in indexes %}
         <section id="{{index.id}}" class="bulma-block">

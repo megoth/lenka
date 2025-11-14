@@ -10,6 +10,8 @@ applications-description = This collection lists software related to Linked Data
     recommend [Awesome Semantic Web](https://github.com/semantalytics/awesome-semantic-web) as a
     better resource to check out for more examples.
 article = Text
+categories-start = The resources are grouped in the following categories:
+categories-end = There's also [more about the page]({$url}#about) and a part about how you
 communities = Communities
 communities-description = In this list there are communities in Norway where you can meet others
     that are interested in Linked Data. (I have a major bias for Oslo since I live here, so I
@@ -31,8 +33,7 @@ intro-to-linked-data-description = We all need to start somewhere, or maybe you'
     should give a good overview of Linked Data.
 introduction = Lenka.no indexes interesting resources related to "lenka data" (aka Linked
     Data, aka RDF, aka Semantic Web, aka Semantic Knowledge Graphs), with focus on resources
-    related to Norway. The resources are grouped in the following categories:
-introduction-end = There's also [more about the page]({$url}#about) and a part about how you
+    related to Norway.
     can [retrieve the data]({$url}#serializations).
 norwegian = Norsk
 organization = Community
