@@ -10,7 +10,7 @@ It uses [Poetry](https://python-poetry.org/) to handle dependencies:
 
 ## Run locally
 
-`poetry run python3.12 main.py`
+`poetry run python3.12 src/index.py`
 
 ## Deployments
 
@@ -23,4 +23,4 @@ This is a handy command to export dependencies from Poetry to requirements.txt:
 
 You can also test the build by running locally using [uv](https://docs.astral.sh/uv/) instead:
 
-`uv run main.py`
+`uv run src/index.py`

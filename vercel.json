@@ -2,36 +2,16 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "public": true,
-  "builds": [
-    {
-      "src": "public/*.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "public/*.ico",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "public/*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "public/*.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "public/*.svg",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "main.py",
-      "use": "@vercel/python"
+  "functions": {
+    "src/index.py": {
+      "memory": 3009,
+      "maxDuration": 30
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/main.py"
+      "dest": "/src/main.py"
     }
   ]
 }
