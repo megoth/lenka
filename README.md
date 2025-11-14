@@ -10,9 +10,20 @@ It uses [Poetry](https://python-poetry.org/) to handle dependencies:
 
 ## Run locally
 
-`poetry run python main`
+`poetry run python api/index.py`
+
+You can also use `vercel dev` by installing the [Vercel CLI](https://vercel.com/docs/cli). This allows you to more 
+easily debug the integration with Vercel.
 
 ## Deployments
 
 Vercel handles the building necessary for the various resources. (For this reason, you need to remember to update
 _both_ pyproject.toml and requirements.txt when changing dependencies.)
+
+This is a handy command to export dependencies from Poetry to requirements.txt:
+
+`poetry export -f requirements.txt --output requirements.txt`
+
+You can also test the build by running locally using [uv](https://docs.astral.sh/uv/) instead:
+
+`uv run api/index.py`

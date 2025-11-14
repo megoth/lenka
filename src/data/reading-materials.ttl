@@ -57,3 +57,13 @@ TypeScript prosjekt"""@no,
 A list og guides and material to help you figure out which library you want to make use of in your JavaScript or
 TypeScript project."""@en ;
     schema:keywords lenka:resource-collection, lenka:javascript, lenka:typescript .
+
+lenka:shacl-for-the-practitioner a schema:CreativeWork ;
+    schema:name "SHACL for the Practitioner"@en ;
+    schema:url <https://veronahe.wordpress.com/shacl-for-the-practitioner/> ;
+    schema:description
+        """
+Bok om SHACL skrevet av Veronika Heimsbakk. Tar for seg alt du trenger å vite om praktisk bruk av SHACL."""@no,
+        """
+Book about SHACL written by Veronika Heimsbakk. Covers everything you need to know about the practical use of SHACL."""@en ;
+    schema:keywords lenka:book, lenka:shacl .

@@ -6,7 +6,7 @@ authors = [
     {name = "Arne Hassel",email = "arne.hassel@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.9,<3.14"
+requires-python = ">=3.12"
 dependencies = [
     "fastapi (>=0.115.8,<0.116.0)",
     "uvicorn (>=0.34.0,<0.35.0)",
@@ -17,10 +17,17 @@ dependencies = [
 ]
 
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[project.scripts]
+app = "src.index:app"
 
 
 [tool.poetry]
 package-mode = false
+
+
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.8"
+
+
+[tool.vercel.scripts]
+build = "python src/build.py"

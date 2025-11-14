@@ -4,6 +4,9 @@
 lenka:ai a schema:DefinedTerm ;
     schema:name "AI"@en .
 
+lenka:book a schema:DefinedTerm ;
+    schema:name "Book"@en, "Bok"@no .
+
 lenka:c a schema:DefinedTerm ;
     schema:name "C"@en .
 
