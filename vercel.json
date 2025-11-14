@@ -1,15 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "public": true,
-  "functions": {
-    "api/index.py": {
-      "memory": 1024
-    }
-  },
-  "routes": [
+  "routes": [ 
     {
-      "src": "/(.*)",
+      "src": "/",
+      "dest": "/api/index.py"
+    },
+    {
+      "src": "/en",
       "dest": "/api/index.py"
     }
   ]
