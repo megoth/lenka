@@ -4,23 +4,23 @@
   "public": true,
   "builds": [
     {
-      "src": "*.css",
+      "src": "public/*.css",
       "use": "@vercel/static"
     },
     {
-      "src": "*.ico",
+      "src": "public/*.ico",
       "use": "@vercel/static"
     },
     {
-      "src": "*.js",
+      "src": "public/*.js",
       "use": "@vercel/static"
     },
     {
-      "src": "*.png",
+      "src": "public/*.png",
       "use": "@vercel/static"
     },
     {
-      "src": "*.svg",
+      "src": "public/*.svg",
       "use": "@vercel/static"
     },
     {
