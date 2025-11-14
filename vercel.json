@@ -1,6 +1,28 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "public": true,
   "builds": [
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.ico",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.svg",
+      "use": "@vercel/static"
+    },
     {
       "src": "main.py",
       "use": "@vercel/python"
@@ -11,8 +33,5 @@
       "src": "/(.*)",
       "dest": "/main.py"
     }
-  ],
-  "env": {
-    "APP_MODULE": "main:app"
-  }
+  ]
 }
