@@ -10,7 +10,10 @@ It uses [Poetry](https://python-poetry.org/) to handle dependencies:
 
 ## Run locally
 
-`poetry run python3.12 api/index.py`
+`poetry run python api/index.py`
+
+You can also use `vercel dev` by installing the [Vercel CLI](https://vercel.com/docs/cli). This allows you to more 
+easily debug the integration with Vercel.
 
 ## Deployments
 
